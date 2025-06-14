@@ -1,29 +1,8 @@
 import fastify from 'fastify';
-import { JSONSchemaType } from 'ajv';
 import dotenv from 'dotenv';
 dotenv.config({ path: '../.env' });
 const server = fastify();
 
-export interface DiscordToken {
-    client_id: string;
-    client_secret: string;
-    grant_type: 'authorization_code';
-    code: string;
-}
-
-export const discordTokenSchema: JSONSchemaType<DiscordToken> = {
-    $id: 'TokenRequest',
-    type: 'object',
-    properties: {
-        client_id: { type: 'string' },
-        client_secret: { type: 'string' },
-        grant_type: { type: 'string', const: 'authorization_code' },
-        code: { type: 'string' },
-    },
-    required: ['client_id', 'client_secret', 'grant_type', 'code'],
-    additionalProperties: false,
-};
-server.addSchema(discordTokenSchema);
 server.post<{
     Body: {
         code: string;
@@ -44,7 +23,7 @@ server.post<{
     },
     async (request, reply) => {
         const { code } = request.body;
-        console.log(code);
+        console.log('api received access_code', code);
         const response = await fetch('https://discord.com/api/oauth2/token', {
             method: 'POST',
             headers: {
@@ -59,7 +38,9 @@ server.post<{
         });
 
         const { access_token } = await response.json();
-        return reply.send(access_token);
+        return reply
+            .header('Access-Control-Allow-Origin', '*')
+            .send({ access_token });
     }
 );
 server.listen({ port: 8080 }, (err, address) => {

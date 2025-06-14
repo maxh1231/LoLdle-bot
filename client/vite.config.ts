@@ -7,12 +7,13 @@ export default defineConfig({
     server: {
         proxy: {
             '/api': {
-                target: 'http://localhost:5173',
+                target: 'http://localhost:8080',
                 changeOrigin: true,
                 secure: false,
                 ws: true,
             },
         },
+        allowedHosts: ['fred-fog-automation-brunette.trycloudflare.com'],
         hmr: {
             clientPort: 443,
         },
