@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { DiscordSDK } from '@discord/embedded-app-sdk';
 
 function App() {
-  const [count, setCount] = useState(0)
+    console.log(import.meta.env.VITE_DISCORD_CLIENT_ID);
+    const discordSdk = new DiscordSDK(import.meta.env.VITE_DISCORD_CLIENT_ID);
+    setupDiscordSdk().then(() => {
+        console.log('Discord SDK ready');
+    });
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    async function setupDiscordSdk() {
+        await discordSdk.ready();
+    }
+
+    return (
+        <>
+            <p>hello world</p>
+        </>
+    );
 }
 
-export default App
+export default App;
