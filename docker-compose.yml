@@ -1,0 +1,17 @@
+services:
+  app:
+    build: ./server/
+    volumes:
+      - ./server:/app/
+    command: [ "sh", "-c", "npm run build && npm run start" ]
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: rebuild
+          path: ./server
+          target: /app
+          ignore:
+            - build/**

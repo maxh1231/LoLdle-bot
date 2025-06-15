@@ -13,7 +13,11 @@ export default defineConfig({
                 ws: true,
             },
         },
-        allowedHosts: ['fred-fog-automation-brunette.trycloudflare.com'],
+        allowedHosts: true,
+        headers: {
+            'X-Frame-Options': 'ALLOWALL',
+            'Content-Security-Policy': 'frame-ancestors *',
+        },
         hmr: {
             clientPort: 443,
         },
