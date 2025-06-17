@@ -1,7 +1,7 @@
 {
     "name": "LoLdle server",
     "version": "1.0.0",
-    "type": "commonJS",
+    "type": "module",
     "main": "index.ts",
     "scripts": {
         "build": "tsc -p tsconfig.json",
