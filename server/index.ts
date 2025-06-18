@@ -1,6 +1,6 @@
 import fastify from 'fastify';
 import dotenv from 'dotenv';
-dotenv.config({ path: '../.env' });
+dotenv.config();
 const server = fastify();
 
 server.post<{
@@ -37,7 +37,9 @@ server.post<{
             }),
         });
 
-        const { access_token } = await response.json();
+        const { access_token } = (await response.json()) as {
+            access_token: string;
+        };
         return reply
             .header('Access-Control-Allow-Origin', '*')
             .send({ access_token });

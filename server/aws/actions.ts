@@ -1,17 +1,59 @@
-import { PutObjectCommand, GetObjectCommand } from '@aws-sdk/client-s3';
+import {
+    PutObjectCommand,
+    GetObjectCommand,
+    HeadObjectCommand,
+} from '@aws-sdk/client-s3';
+import type {
+    PutObjectCommandInput,
+    GetObjectCommandInput,
+    HeadObjectCommandInput,
+} from '@aws-sdk/client-s3';
 
-export const putObject = (Key: string, Body: any) => {
+/**
+ * Upload object to bucket.
+ * @param {PutObjectCommandInput} - Request options.
+ * @returns - Command to execute.
+ */
+export const putObject = ({
+    Bucket,
+    Key,
+    Body,
+    ...rest
+}: PutObjectCommandInput) => {
     return new PutObjectCommand({
-        Bucket: 'loldle',
-        Key: Key,
-        Body: Body,
-        ContentType: 'image/png',
+        Bucket,
+        Key,
+        Body,
+        ...rest,
     });
 };
 
-export const getObject = (Key: string) => {
+/**
+ * Get object from bucket.
+ * @param {GetObjectCommandInput} - Request options.
+ * @returns - Command to execute.
+ */
+export const getObject = ({ Key }: GetObjectCommandInput) => {
     return new GetObjectCommand({
         Bucket: 'loldle',
         Key: Key,
+    });
+};
+
+/**
+ * Get object metadata from bucket.
+ * Useful for determining if object already exists.
+ * @param {HeadObjectCommandInput} - Request options.
+ * @returns - Command to execute.
+ */
+export const getObjectMetaData = ({
+    Bucket = 'loldle',
+    Key,
+    ...rest
+}: HeadObjectCommandInput) => {
+    return new HeadObjectCommand({
+        Bucket,
+        Key,
+        ...rest,
     });
 };

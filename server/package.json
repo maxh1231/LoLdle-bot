@@ -4,8 +4,9 @@
     "type": "module",
     "main": "index.ts",
     "scripts": {
-        "build": "tsc -p tsconfig.json",
-        "start": "node build/index.js"
+        "build": "esbuild index.ts --platform=node --outfile=build/index.js --format=esm",
+        "start": "node build/index.js",
+        "dev": "make dev"
     },
     "dependencies": {
         "@aws-sdk/client-s3": "^3.828.0",
@@ -14,6 +15,7 @@
     },
     "devDependencies": {
         "@types/node": "^24.0.1",
+        "esbuild": "0.25.5",
         "typescript": "^5.8.3"
     }
 }
