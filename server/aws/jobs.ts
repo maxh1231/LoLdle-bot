@@ -1,8 +1,8 @@
-import { client } from './client.ts';
-import { putObject, getObjectMetaData } from './actions.ts';
-import { getVersion } from '../riot/getVersion.ts';
-import { getSquareImg } from '../riot/getAssets.ts';
-import { championNames } from '../constants/championNames.ts';
+import { client } from './client.js';
+import { putObject, getObjectMetaData } from './actions.js';
+import { getVersion } from '../riot/getVersion.js';
+import { getSquareImg } from '../riot/getAssets.js';
+import { championNames } from '../constants/championNames.js';
 
 const storeAssets = async () => {
     const version = await getVersion();

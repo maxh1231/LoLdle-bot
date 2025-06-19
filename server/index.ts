@@ -1,8 +1,9 @@
-import fastify from 'fastify';
 import dotenv from 'dotenv';
 dotenv.config();
+import fastify from 'fastify';
+import { api } from './api/index.js';
 const server = fastify();
-
+server.register(api, { prefix: '/api' });
 server.post<{
     Body: {
         code: string;

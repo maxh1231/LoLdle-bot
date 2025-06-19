@@ -4,7 +4,7 @@
     "type": "module",
     "main": "index.ts",
     "scripts": {
-        "build": "esbuild index.ts --platform=node --outfile=build/index.js --format=esm",
+        "build": "esbuild index.ts **/*.ts --platform=node --outdir=build --format=esm",
         "start": "node build/index.js",
         "dev": "make dev"
     },
@@ -16,6 +16,7 @@
     "devDependencies": {
         "@types/node": "^24.0.1",
         "esbuild": "0.25.5",
+        "ts-node": "^10.9.2",
         "typescript": "^5.8.3"
     }
 }
