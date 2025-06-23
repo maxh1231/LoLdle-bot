@@ -33,7 +33,7 @@ export const putObject = ({
  * @param {GetObjectCommandInput} - Request options.
  * @returns - Command to execute.
  */
-export const getObject = ({ Key }: GetObjectCommandInput) => {
+export const getObject = ({ Key }: Partial<GetObjectCommandInput>) => {
     return new GetObjectCommand({
         Bucket: 'loldle',
         Key: Key,
