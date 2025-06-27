@@ -12,15 +12,15 @@ const storeAssets = async () => {
             await client.send(
                 getObjectMetaData({
                     Bucket: 'loldle',
-                    Key: `${champion}/${champion}`,
+                    Key: `${champion.name}/${champion.name}`,
                 })
             );
         } catch {
-            const img = await getSquareImg(champion, version);
+            const img = await getSquareImg(champion.id, version);
             client.send(
                 putObject({
                     Bucket: 'loldle',
-                    Key: `${champion}/${champion}`,
+                    Key: `${champion.name}/${champion.name}`,
                     Body: img,
                     ContentType: 'image/png',
                 })
