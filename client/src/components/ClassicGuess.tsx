@@ -1,5 +1,5 @@
 import type { Champion } from '../types/champion';
-const ClassicChampion: React.FC<{ data: Champion }> = ({ data }) => {
+const ClassicGuess: React.FC<{ data: Champion }> = ({ data }) => {
     return (
         <section>
             <div>
@@ -37,4 +37,4 @@ const ClassicChampion: React.FC<{ data: Champion }> = ({ data }) => {
     );
 };
 
-export default ClassicChampion;
+export default ClassicGuess;
