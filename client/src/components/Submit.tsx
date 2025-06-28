@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import championData from '../assets/championData.json';
 import type { Champion } from '../types/champion';
-import { getChampionSquare } from '../utils/getChampionUtils';
+import { buildImgUrl } from '../utils/getChampionUtils';
 
 const Submit = () => {
     const [search, setSearch] = useState<string | null>(null);
@@ -18,15 +18,10 @@ const Submit = () => {
         });
         matches.forEach((item) => {
             if (!item.img) {
-                getChampionSquare(
-                    item.champion_name.replace(/[^a-zA-Z]/g, '').toLowerCase()
-                ).then((url) => {
-                    item.img = url;
-                });
+                item.img = buildImgUrl(item.champion_name);
             }
         });
         setSearchOptions(matches);
-        console.log(searchOptions);
     }, [search]);
 
     return (

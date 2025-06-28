@@ -1,12 +1,9 @@
 /**
- * Gets the image of a champion.
+ * Removes whitespace and puncation from a champion name
  * @param championName
- * @returns {Promise<string>} - Object URL of champion image.
+ * @returns {string} - URL of champion image.
  */
-export const getChampionSquare = async (
-    championName: string
-): Promise<string> => {
-    const response = await fetch(`/api/champion/${championName}`);
-    const data = await response.blob();
-    return URL.createObjectURL(data);
+export const buildImgUrl = (championName: string): string => {
+    const raw = championName.replace(/[^a-zA-Z]/g, '').toLowerCase();
+    return `/champion/${raw}/${raw}`;
 };
