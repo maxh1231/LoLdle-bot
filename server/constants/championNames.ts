@@ -107,7 +107,7 @@ export const championNames = [
     { id: 'Rammus', name: 'rammus' },
     { id: 'RekSai', name: 'reksai' },
     { id: 'Rell', name: 'rell' },
-    { id: 'Renata', name: 'renata' },
+    { id: 'Renata', name: 'renataglasc' },
     { id: 'Renekton', name: 'renekton' },
     { id: 'Rengar', name: 'rengar' },
     { id: 'Riven', name: 'riven' },
