@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,7 +11,6 @@ export default defineConfig({
                 target: 'http://localhost:8080',
                 changeOrigin: true,
                 secure: false,
-                ws: true,
             },
         },
         allowedHosts: true,
@@ -18,9 +18,6 @@ export default defineConfig({
             'X-Frame-Options': 'ALLOWALL',
             'Content-Security-Policy': 'frame-ancestors *',
         },
-        hmr: {
-            clientPort: 443,
-        },
     },
-    plugins: [react()],
+    plugins: [react(), tailwindcss()],
 });
