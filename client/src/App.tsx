@@ -4,10 +4,8 @@ import { AuthProvider } from './AuthProvider';
 function App() {
     return (
         <AuthProvider>
-            <section className='w-full'>
-                <p className='text-sm'>hello world</p>
-                <Submit />
-            </section>
+            <p className='text-sm'>hello world</p>
+            <Submit />
         </AuthProvider>
     );
 }

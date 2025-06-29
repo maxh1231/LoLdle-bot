@@ -33,11 +33,11 @@ const Submit = () => {
                 placeholder='Type a champion name...'
             />
             {searchOptions && (
-                <div className='bg-grey border-2 border-black'>
+                <div className='max-h-[292px] overflow-y-scroll bg-grey border-2 border-black'>
                     {searchOptions.map((item, i) => (
                         <div
                             key={i}
-                            className='flex flex-row items-center space-x-4'
+                            className=' m-2 flex flex-row items-center space-x-4 cursor-pointer hover:bg-neutral-700'
                         >
                             <img
                                 src={item.img}
