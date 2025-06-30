@@ -2,13 +2,9 @@ import type { Champion } from '../types/champion';
 interface ClassicGuessProps {
     attempt: Champion;
     solution: Champion;
-    setAttempts: React.Dispatch<React.SetStateAction<Champion[] | null>>;
 }
-const ClassicGuess: React.FC<ClassicGuessProps> = ({
-    attempt,
-    solution,
-    setAttempts,
-}) => {
+const ClassicGuess: React.FC<ClassicGuessProps> = ({ attempt, solution }) => {
+    console.log(attempt, solution);
     return (
         <div>
             <div>

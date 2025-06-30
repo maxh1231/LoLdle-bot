@@ -21,15 +21,11 @@ const Classic = () => {
     const [attempt, setAttempts] = useState<Champion[] | null>(null);
     return (
         <section>
-            <Submit />
+            <Submit setAttempts={setAttempts} />
             {attempt &&
                 attempt.length > 0 &&
                 attempt.map((item) => (
-                    <ClassicGuess
-                        attempt={item}
-                        solution={DailyChampion}
-                        setAttempts={setAttempts}
-                    />
+                    <ClassicGuess attempt={item} solution={DailyChampion} />
                 ))}
         </section>
     );
