@@ -1,16 +1,25 @@
 import type { Champion } from '../types/champion';
-const ClassicGuess: React.FC<{ data: Champion }> = ({ data }) => {
+interface ClassicGuessProps {
+    attempt: Champion;
+    solution: Champion;
+    setAttempts: React.Dispatch<React.SetStateAction<Champion[] | null>>;
+}
+const ClassicGuess: React.FC<ClassicGuessProps> = ({
+    attempt,
+    solution,
+    setAttempts,
+}) => {
     return (
-        <section>
+        <div>
             <div>
                 <h2>Champion</h2>
                 <div>
-                    <img src={data.img} alt='champion image' />
+                    <img src={attempt.img} alt='champion image' />
                 </div>
             </div>
             <div>
                 <h2>Gender</h2>
-                <span>{data.gender}</span>
+                <span>{attempt.gender}</span>
             </div>
             <div>
                 <h2>Position(s)</h2>
@@ -20,20 +29,20 @@ const ClassicGuess: React.FC<{ data: Champion }> = ({ data }) => {
             </div>
             <div>
                 <h2>Resource</h2>
-                <span>{data.resource}</span>
+                <span>{attempt.resource}</span>
             </div>
             <div>
                 <h2>Range Type</h2>
-                <span>{data.range_type}</span>
+                <span>{attempt.range_type}</span>
             </div>
             <div>
                 <h2>Region(s)</h2>
             </div>
             <div>
                 <h2>Release Year</h2>
-                <span>{data.release_year}</span>
+                <span>{attempt.release_date}</span>
             </div>
-        </section>
+        </div>
     );
 };
 

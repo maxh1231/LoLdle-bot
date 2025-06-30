@@ -3,7 +3,9 @@ import championData from '../assets/championData.json';
 import type { Champion } from '../types/champion';
 import { buildImgUrl } from '../utils/getChampionUtils';
 
-const Submit = () => {
+const Submit: React.FC<
+    React.Dispatch<React.SetStateAction<Champion[] | null>>
+> = (setAttempts) => {
     const [search, setSearch] = useState<string | null>(null);
     const [searchOptions, setSearchOptions] = useState<Champion[] | null>(null);
     const champions: Champion[] = championData;
@@ -38,6 +40,9 @@ const Submit = () => {
                         <div
                             key={i}
                             className=' m-2 flex flex-row items-center space-x-4 cursor-pointer hover:bg-neutral-700'
+                            onClick={() =>
+                                setAttempts((prev) => [...prev, item])
+                            }
                         >
                             <img
                                 src={item.img}
