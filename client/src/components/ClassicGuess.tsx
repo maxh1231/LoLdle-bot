@@ -1,3 +1,4 @@
+import { appendComma } from '../helpers/utils';
 import type { Champion } from '../types/champion';
 interface ClassicGuessProps {
     attempt: Champion;
@@ -31,9 +32,15 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({ attempt, solution }) => {
                     <h2>Position(s)</h2>
                 </div>
                 <div className='flex flex-col justify-center items-center w-17 h-18'>
-                    {attempt.positions.map((item) => (
+                    {attempt.positions.map((position, i) => (
                         <>
-                            <p className='text-base/5'>{item}</p>
+                            <p className='text-base/5'>
+                                {appendComma(
+                                    position,
+                                    i,
+                                    attempt.positions.length
+                                )}
+                            </p>
                         </>
                     ))}
                 </div>
@@ -43,9 +50,15 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({ attempt, solution }) => {
                     <h2>Species</h2>
                 </div>
                 <div className='flex flex-col justify-center items-center w-17 h-18'>
-                    {attempt.species.map((item) => (
+                    {attempt.species.map((species, i) => (
                         <>
-                            <p className='text-base/5'>{item}</p>
+                            <p className='text-base/5'>
+                                {appendComma(
+                                    species,
+                                    i,
+                                    attempt.species.length
+                                )}
+                            </p>
                         </>
                     ))}
                 </div>
@@ -71,9 +84,11 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({ attempt, solution }) => {
                     <h2>Region(s)</h2>
                 </div>
                 <div className='flex flex-col justify-center items-center w-17 h-18'>
-                    {attempt.regions.map((item) => (
+                    {attempt.regions.map((region, i) => (
                         <>
-                            <p className='text-base/5'>{item}</p>
+                            <p className='text-base/5'>
+                                {appendComma(region, i, attempt.regions.length)}
+                            </p>
                         </>
                     ))}
                 </div>
@@ -83,7 +98,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({ attempt, solution }) => {
                     <h2>Release Year</h2>
                 </div>
                 <div className='flex justify-center items-center w-17 h-18'>
-                    <span>{attempt.release_date}</span>
+                    <span>{attempt.release_date.slice(0, 4)}</span>
                 </div>
             </div>
         </>

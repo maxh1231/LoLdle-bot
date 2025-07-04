@@ -1,7 +1,7 @@
 import { useState, useEffect, KeyboardEvent } from 'react';
 import championData from '../assets/championData.json';
 import type { Champion } from '../types/champion';
-import { buildImgUrl } from '../utils/getChampionUtils';
+import { buildImgUrl } from '../helpers/getChampionUtils';
 
 const Submit = ({
     setAttempts,
