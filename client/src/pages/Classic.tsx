@@ -24,8 +24,12 @@ const Classic = () => {
             <Submit setAttempts={setAttempts} />
             {attempt &&
                 attempt.length > 0 &&
-                attempt.map((item) => (
-                    <ClassicGuess attempt={item} solution={DailyChampion} />
+                attempt.map((item, i) => (
+                    <ClassicGuess
+                        key={i}
+                        attempt={item}
+                        solution={DailyChampion}
+                    />
                 ))}
         </section>
     );

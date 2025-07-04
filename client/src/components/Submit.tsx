@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, KeyboardEvent } from 'react';
 import championData from '../assets/championData.json';
 import type { Champion } from '../types/champion';
 import { buildImgUrl } from '../utils/getChampionUtils';
@@ -9,8 +9,8 @@ const Submit = ({
     setAttempts: React.Dispatch<React.SetStateAction<Champion[] | null>>;
 }) => {
     const [search, setSearch] = useState<string | null>(null);
-    const [searchOptions, setSearchOptions] = useState<Champion[] | null>(null);
-    let champions: Champion[] = championData;
+    const [searchOptions, setSearchOptions] = useState<Champion[]>([]);
+    const [champions, setChampions] = useState<Champion[]>(championData);
 
     useEffect(() => {
         const matches = champions.filter((item) => {
@@ -26,7 +26,7 @@ const Submit = ({
             }
         });
         setSearchOptions(matches);
-    }, [search]);
+    }, [search]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleSelection = (selectedChampion: Champion) => {
         setAttempts((prev) =>
@@ -34,23 +34,27 @@ const Submit = ({
         );
         setSearch(null);
         // TODO: Handle this more elegantly if possible, currently O(n), ideally O(1)
-        // May have to store champions in a state to have removed champions persist across rerenders
-        champions = champions.filter(
-            (item) => item.champion_name !== selectedChampion.champion_name
-        );
+        setChampions(champions.filter((item) => item != selectedChampion));
         console.log(champions);
+    };
+
+    const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.code === 'Enter' && searchOptions.length > 0) {
+            handleSelection(searchOptions[0]);
+        }
     };
 
     return (
         <div>
             <input
                 onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={handleKeyPress}
                 type='text'
                 value={search ? search : ''}
                 className='block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300'
                 placeholder='Type a champion name...'
             />
-            {searchOptions && (
+            {searchOptions.length > 0 && (
                 <div className='max-h-[292px] overflow-y-scroll bg-grey border-2 border-black'>
                     {searchOptions.map((item, i) => (
                         <div
