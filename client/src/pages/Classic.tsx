@@ -22,15 +22,17 @@ const Classic = () => {
     return (
         <section>
             <Submit setAttempts={setAttempts} />
-            {attempt &&
-                attempt.length > 0 &&
-                attempt.map((item, i) => (
-                    <ClassicGuess
-                        key={i}
-                        attempt={item}
-                        solution={DailyChampion}
-                    />
-                ))}
+            {attempt && attempt.length > 0 && (
+                <section className='w-[576px] grid grid-cols-8 text-center'>
+                    {attempt.map((item, i) => (
+                        <ClassicGuess
+                            key={i}
+                            attempt={item}
+                            solution={DailyChampion}
+                        />
+                    ))}
+                </section>
+            )}
         </section>
     );
 };

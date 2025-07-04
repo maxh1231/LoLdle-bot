@@ -35,7 +35,6 @@ const Submit = ({
         setSearch(null);
         // TODO: Handle this more elegantly if possible, currently O(n), ideally O(1)
         setChampions(champions.filter((item) => item != selectedChampion));
-        console.log(champions);
     };
 
     const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
