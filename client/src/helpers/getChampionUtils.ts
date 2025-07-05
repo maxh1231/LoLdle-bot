@@ -1,10 +1,9 @@
 /**
- * Removes whitespace and puncation from a champion name
+ * Removes whitespace and puncuation from a champion name and builds request URL.
  * @param championName
  * @returns {string} - URL of champion image.
  */
 export const buildImgUrl = (championName: string): string => {
-    console.log(import.meta.env.VITE_R2_BUCKET);
     const raw = championName.replace(/[^a-zA-Z]/g, '').toLowerCase();
     // if rendered in discord activity request is proxied, otherwise standard URL
     // TODO: Clean this functionality up with alternative method

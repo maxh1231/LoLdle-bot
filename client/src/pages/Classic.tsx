@@ -1,11 +1,8 @@
 import { ClassicGuess, Submit } from '../components';
 import { useState } from 'react';
 import type { Champion } from '../types/champion';
-// Obtain daily champion
-// State that holds attempt
-// map attempt, rendering ClassicGuess
-// Should ClassicGuess accept a prop for daily champion, or obtain daily champion itself?
-// If obtained itself, possibly redundant requests
+
+// Development DailyChampion
 const DailyChampion: Champion = {
     champion_name: 'Alistar',
     gender: 'M',
