@@ -30,7 +30,7 @@ const Submit = ({
 
     const handleSelection = (selectedChampion: Champion) => {
         setAttempts((prev) =>
-            prev ? [...prev, selectedChampion] : [selectedChampion]
+            prev ? [selectedChampion, ...prev] : [selectedChampion]
         );
         setSearch(null);
         // TODO: Handle this more elegantly if possible, currently O(n), ideally O(1)
@@ -44,21 +44,21 @@ const Submit = ({
     };
 
     return (
-        <div>
+        <div className='mx-auto mt-72 relative max-w-[346px]'>
             <input
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyDown={handleKeyPress}
                 type='text'
                 value={search ? search : ''}
-                className='block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300'
+                className='w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300'
                 placeholder='Type a champion name...'
             />
             {searchOptions.length > 0 && (
-                <div className='max-h-[292px] overflow-y-scroll bg-grey border-2 border-black'>
+                <div className='absolute w-full max-h-[292px]  overflow-y-scroll bg-[#1E2328] border-2 border-black z-10'>
                     {searchOptions.map((item, i) => (
                         <div
                             key={i}
-                            className=' m-2 flex flex-row items-center space-x-4 cursor-pointer hover:bg-neutral-700'
+                            className='m-2 flex flex-row items-center space-x-4 cursor-pointer hover:bg-neutral-700'
                             onClick={() => handleSelection(item)}
                         >
                             <img

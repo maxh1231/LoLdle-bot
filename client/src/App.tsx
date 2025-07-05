@@ -1,12 +1,14 @@
-import './App.css';
-import { AuthProvider } from './AuthProvider';
-import { Link } from 'react-router';
+import { Routes, Route } from 'react-router';
+import { Landing, Classic } from './pages';
+
 function App() {
     return (
-        <AuthProvider>
-            <p className='text-sm'>Loldle</p>
-            <Link to={'/classic'}>Classic Mode</Link>
-        </AuthProvider>
+        <main className='min-h-screen'>
+            <Routes>
+                <Route path='/' element={<Landing />} />
+                <Route path='/classic' element={<Classic />} />
+            </Routes>
+        </main>
     );
 }
 
