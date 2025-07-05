@@ -16,11 +16,20 @@ const DailyChampion: Champion = {
 
 const Classic = () => {
     const [attempt, setAttempts] = useState<Champion[] | null>(null);
+    const colHeader = 'flex justify-center items-center w-17 h-18';
     return (
         <section>
             <Submit setAttempts={setAttempts} />
             {attempt && attempt.length > 0 && (
-                <section className='w-[576px] grid grid-cols-8 text-center'>
+                <div className='w-[576px] grid grid-cols-8 gap-y-4 text-center'>
+                    <h2 className={colHeader}>Champion</h2>
+                    <h2 className={colHeader}>Gender</h2>
+                    <h2 className={colHeader}>Position(s)</h2>
+                    <h2 className={colHeader}>Species</h2>
+                    <h2 className={colHeader}>Resource</h2>
+                    <h2 className={colHeader}>Range Type</h2>
+                    <h2 className={colHeader}>Region(s)</h2>
+                    <h2 className={colHeader}>Release Year</h2>
                     {attempt.map((item, i) => (
                         <ClassicGuess
                             key={i}
@@ -28,7 +37,7 @@ const Classic = () => {
                             solution={DailyChampion}
                         />
                     ))}
-                </section>
+                </div>
             )}
         </section>
     );
