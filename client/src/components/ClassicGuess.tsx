@@ -20,6 +20,51 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({ attempt, solution }) => {
         return '#DA160E';
     };
 
+    const evalReleaseYear = (year: number) => {
+        const comparator = parseInt(solution.release_date.slice(0, 4));
+        if (year == comparator)
+            return (
+                <div
+                    style={{ backgroundColor: '#09C22E' }}
+                    className='flex justify-center items-center w-17 h-18'
+                >
+                    <p>{year}</p>
+                </div>
+            );
+        else if (year < comparator)
+            return (
+                <div
+                    style={{ backgroundColor: '#DA160E' }}
+                    className='flex justify-center items-center w-17 h-18'
+                >
+                    <svg width='' height='' viewBox='0 0 100 100'>
+                        <rect width='100' height='100' fill='#DA160E' />
+                        <polygon
+                            points='50,4 100,50 80,50 80,90 20,90 20,50 0,50'
+                            fill='#1B1F23'
+                        />
+                    </svg>
+                    <p className='absolute text-base/5'>{year}</p>
+                </div>
+            );
+        else
+            return (
+                <div
+                    style={{ backgroundColor: '#DA160E' }}
+                    className='flex justify-center items-center w-17 h-18'
+                >
+                    <svg width='100' height='100' viewBox='0 0 100 100'>
+                        <rect width='100' height='100' fill='#DA160E' />
+                        <polygon
+                            points='50,96 100,50 80,50 80,10 20,10 20,50 0,50'
+                            fill='#1B1F23'
+                        />
+                    </svg>
+                    <p className='absolute text-base/5'>{year}</p>
+                </div>
+            );
+    };
+
     return (
         <>
             <div>
@@ -111,9 +156,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({ attempt, solution }) => {
                     </p>
                 ))}
             </div>
-            <div className='flex justify-center items-center w-17 h-18'>
-                <p>{attempt.release_date.slice(0, 4)}</p>
-            </div>
+            {evalReleaseYear(parseInt(attempt.release_date.slice(0, 4)))}
         </>
     );
 };

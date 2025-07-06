@@ -9,7 +9,7 @@ const DailyChampion: Champion = {
     positions: ['Support'],
     range_type: ['Melee'],
     regions: ['Runeterra'],
-    release_date: '2009-02-21',
+    release_date: '2020-02-21',
     resource: 'Mana',
     species: ['Minotaur'],
 };
