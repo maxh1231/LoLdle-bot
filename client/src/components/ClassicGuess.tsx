@@ -20,6 +20,14 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({ attempt, solution }) => {
         return '#DA160E';
     };
 
+    // TODO:
+    // Can potentially optimize by saving .svg files and importing them.
+    // May be better in a separate component, even though it wouldn't
+    // be used elsewhere.
+    // Currently the SVGs have a red square background. May be better
+    // to omit the red square and instead render the arrow abosolutely
+    // on top of a container with a red background, as the container has
+    // the red background regardless.
     const evalReleaseYear = (year: number) => {
         const comparator = parseInt(solution.release_date.slice(0, 4));
         if (year == comparator)
