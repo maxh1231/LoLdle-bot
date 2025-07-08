@@ -25,4 +25,8 @@ export const champion = async (server: FastifyInstance) => {
                     .send({ error: 'S3 fetch failed', details: String(err) });
         }
     });
+
+    server.get('/classic', async (request, reply) => {
+        // return id of daily champion
+    });
 };

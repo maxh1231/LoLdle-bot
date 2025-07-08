@@ -2,6 +2,7 @@
     {
         "champion_name": "Alistar",
         "gender": "M",
+        "id": 1,
         "positions": ["Support"],
         "range_type": ["Melee"],
         "regions": ["Runeterra"],
@@ -12,6 +13,7 @@
     {
         "champion_name": "Annie",
         "gender": "F",
+        "id": 2,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra"],
@@ -22,6 +24,7 @@
     {
         "champion_name": "Ashe",
         "gender": "F",
+        "id": 3,
         "positions": ["Bottom", "Support"],
         "range_type": ["Ranged"],
         "regions": ["Freljord"],
@@ -32,6 +35,7 @@
     {
         "champion_name": "Fiddlesticks",
         "gender": "X",
+        "id": 4,
         "positions": ["Jungle"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra"],
@@ -42,6 +46,7 @@
     {
         "champion_name": "Jax",
         "gender": "M",
+        "id": 5,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Runeterra", "Icathia", "Shurima"],
@@ -52,6 +57,7 @@
     {
         "champion_name": "Kayle",
         "gender": "F",
+        "id": 6,
         "positions": ["Top"],
         "range_type": ["Melee", "Ranged"],
         "regions": ["Demacia", "Targon"],
@@ -62,6 +68,7 @@
     {
         "champion_name": "Master Yi",
         "gender": "M",
+        "id": 7,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -72,6 +79,7 @@
     {
         "champion_name": "Morgana",
         "gender": "F",
+        "id": 8,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Demacia", "Targon"],
@@ -82,6 +90,7 @@
     {
         "champion_name": "Nunu & Willump",
         "gender": "M",
+        "id": 9,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Freljord"],
@@ -92,6 +101,7 @@
     {
         "champion_name": "Ryze",
         "gender": "M",
+        "id": 10,
         "positions": ["Top", "Middle"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra"],
@@ -102,6 +112,7 @@
     {
         "champion_name": "Sion",
         "gender": "M",
+        "id": 11,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Noxus"],
@@ -112,6 +123,7 @@
     {
         "champion_name": "Sivir",
         "gender": "F",
+        "id": 12,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Shurima"],
@@ -122,6 +134,7 @@
     {
         "champion_name": "Soraka",
         "gender": "F",
+        "id": 13,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Targon", "Ionia"],
@@ -132,6 +145,7 @@
     {
         "champion_name": "Teemo",
         "gender": "M",
+        "id": 14,
         "positions": ["Top"],
         "range_type": ["Ranged"],
         "regions": ["Bandle City"],
@@ -142,6 +156,7 @@
     {
         "champion_name": "Tristana",
         "gender": "F",
+        "id": 15,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Bandle City"],
@@ -152,6 +167,7 @@
     {
         "champion_name": "Twisted Fate",
         "gender": "M",
+        "id": 16,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Bilgewater"],
@@ -162,6 +178,7 @@
     {
         "champion_name": "Warwick",
         "gender": "M",
+        "id": 17,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Zaun"],
@@ -172,6 +189,7 @@
     {
         "champion_name": "Singed",
         "gender": "M",
+        "id": 18,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Zaun", "Piltover"],
@@ -182,6 +200,7 @@
     {
         "champion_name": "Zilean",
         "gender": "M",
+        "id": 19,
         "positions": ["Middle", "Support"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra", "Icathia", "Shurima"],
@@ -192,6 +211,7 @@
     {
         "champion_name": "Evelynn",
         "gender": "F",
+        "id": 20,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Runeterra"],
@@ -202,6 +222,7 @@
     {
         "champion_name": "Tryndamere",
         "gender": "M",
+        "id": 21,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Freljord"],
@@ -212,6 +233,7 @@
     {
         "champion_name": "Twitch",
         "gender": "M",
+        "id": 22,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Zaun"],
@@ -222,6 +244,7 @@
     {
         "champion_name": "Karthus",
         "gender": "M",
+        "id": 23,
         "positions": ["Jungle", "Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Shadow Isles", "Noxus"],
@@ -232,6 +255,7 @@
     {
         "champion_name": "Amumu",
         "gender": "M",
+        "id": 24,
         "positions": ["Jungle", "Support"],
         "range_type": ["Melee"],
         "regions": ["Shurima"],
@@ -242,6 +266,7 @@
     {
         "champion_name": "Cho'Gath",
         "gender": "M",
+        "id": 25,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Void"],
@@ -252,6 +277,7 @@
     {
         "champion_name": "Anivia",
         "gender": "F",
+        "id": 26,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Freljord"],
@@ -262,6 +288,7 @@
     {
         "champion_name": "Rammus",
         "gender": "M",
+        "id": 27,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Shurima"],
@@ -272,6 +299,7 @@
     {
         "champion_name": "Veigar",
         "gender": "M",
+        "id": 28,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra", "Bandle City"],
@@ -282,6 +310,7 @@
     {
         "champion_name": "Kassadin",
         "gender": "M",
+        "id": 29,
         "positions": ["Middle"],
         "range_type": ["Melee"],
         "regions": ["Void"],
@@ -292,6 +321,7 @@
     {
         "champion_name": "Gangplank",
         "gender": "M",
+        "id": 30,
         "positions": ["Top", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Bilgewater"],
@@ -302,6 +332,7 @@
     {
         "champion_name": "Taric",
         "gender": "M",
+        "id": 31,
         "positions": ["Support"],
         "range_type": ["Melee"],
         "regions": ["Targon", "Demacia"],
@@ -312,6 +343,7 @@
     {
         "champion_name": "Blitzcrank",
         "gender": "X",
+        "id": 32,
         "positions": ["Support"],
         "range_type": ["Melee"],
         "regions": ["Zaun"],
@@ -322,6 +354,7 @@
     {
         "champion_name": "Dr. Mundo",
         "gender": "M",
+        "id": 33,
         "positions": ["Top", "Jungle"],
         "range_type": ["Melee"],
         "regions": ["Zaun"],
@@ -332,6 +365,7 @@
     {
         "champion_name": "Janna",
         "gender": "F",
+        "id": 34,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Zaun", "Shurima"],
@@ -342,6 +376,7 @@
     {
         "champion_name": "Malphite",
         "gender": "M",
+        "id": 35,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Ixtal", "Shurima"],
@@ -352,6 +387,7 @@
     {
         "champion_name": "Corki",
         "gender": "M",
+        "id": 36,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Bandle City"],
@@ -362,6 +398,7 @@
     {
         "champion_name": "Katarina",
         "gender": "F",
+        "id": 37,
         "positions": ["Middle"],
         "range_type": ["Melee"],
         "regions": ["Noxus"],
@@ -372,6 +409,7 @@
     {
         "champion_name": "Nasus",
         "gender": "M",
+        "id": 38,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Shurima"],
@@ -382,6 +420,7 @@
     {
         "champion_name": "Heimerdinger",
         "gender": "M",
+        "id": 39,
         "positions": ["Middle", "Top", "Support"],
         "range_type": ["Ranged"],
         "regions": ["Piltover"],
@@ -392,6 +431,7 @@
     {
         "champion_name": "Shaco",
         "gender": "M",
+        "id": 40,
         "positions": ["Jungle", "Support"],
         "range_type": ["Melee"],
         "regions": ["Runeterra"],
@@ -402,6 +442,7 @@
     {
         "champion_name": "Udyr",
         "gender": "M",
+        "id": 41,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Freljord", "Ionia"],
@@ -412,6 +453,7 @@
     {
         "champion_name": "Nidalee",
         "gender": "F",
+        "id": 42,
         "positions": ["Jungle"],
         "range_type": ["Melee", "Ranged"],
         "regions": ["Ixtal"],
@@ -422,6 +464,7 @@
     {
         "champion_name": "Poppy",
         "gender": "F",
+        "id": 43,
         "positions": ["Top", "Jungle"],
         "range_type": ["Melee"],
         "regions": ["Demacia"],
@@ -432,6 +475,7 @@
     {
         "champion_name": "Gragas",
         "gender": "M",
+        "id": 44,
         "positions": ["Top", "Jungle"],
         "range_type": ["Melee"],
         "regions": ["Freljord"],
@@ -442,6 +486,7 @@
     {
         "champion_name": "Pantheon",
         "gender": "M",
+        "id": 45,
         "positions": ["Top", "Middle", "Support"],
         "range_type": ["Melee"],
         "regions": ["Targon"],
@@ -452,6 +497,7 @@
     {
         "champion_name": "Mordekaiser",
         "gender": "M",
+        "id": 46,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Noxus"],
@@ -462,6 +508,7 @@
     {
         "champion_name": "Ezreal",
         "gender": "M",
+        "id": 47,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Piltover"],
@@ -472,6 +519,7 @@
     {
         "champion_name": "Shen",
         "gender": "M",
+        "id": 48,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -482,6 +530,7 @@
     {
         "champion_name": "Kennen",
         "gender": "M",
+        "id": 49,
         "positions": ["Top"],
         "range_type": ["Ranged"],
         "regions": ["Ionia"],
@@ -492,6 +541,7 @@
     {
         "champion_name": "Garen",
         "gender": "M",
+        "id": 50,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Demacia"],
@@ -502,6 +552,7 @@
     {
         "champion_name": "Akali",
         "gender": "F",
+        "id": 51,
         "positions": ["Top", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -512,6 +563,7 @@
     {
         "champion_name": "Malzahar",
         "gender": "M",
+        "id": 52,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Void"],
@@ -522,6 +574,7 @@
     {
         "champion_name": "Olaf",
         "gender": "M",
+        "id": 53,
         "positions": ["Top", "Jungle"],
         "range_type": ["Melee"],
         "regions": ["Freljord"],
@@ -532,6 +585,7 @@
     {
         "champion_name": "Kog'Maw",
         "gender": "M",
+        "id": 54,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Void"],
@@ -542,6 +596,7 @@
     {
         "champion_name": "Xin Zhao",
         "gender": "M",
+        "id": 55,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Demacia", "Ionia", "Noxus"],
@@ -552,6 +607,7 @@
     {
         "champion_name": "Vladimir",
         "gender": "M",
+        "id": 56,
         "positions": ["Top", "Middle"],
         "range_type": ["Ranged"],
         "regions": ["Noxus", "Blessed Isles", "Camavor"],
@@ -562,6 +618,7 @@
     {
         "champion_name": "Galio",
         "gender": "M",
+        "id": 57,
         "positions": ["Middle", "Support"],
         "range_type": ["Melee"],
         "regions": ["Demacia"],
@@ -572,6 +629,7 @@
     {
         "champion_name": "Urgot",
         "gender": "M",
+        "id": 58,
         "positions": ["Top"],
         "range_type": ["Ranged"],
         "regions": ["Noxus", "Zaun"],
@@ -582,6 +640,7 @@
     {
         "champion_name": "Miss Fortune",
         "gender": "F",
+        "id": 59,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Bilgewater"],
@@ -592,6 +651,7 @@
     {
         "champion_name": "Sona",
         "gender": "F",
+        "id": 60,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Demacia"],
@@ -602,6 +662,7 @@
     {
         "champion_name": "Swain",
         "gender": "M",
+        "id": 61,
         "positions": ["Middle", "Support"],
         "range_type": ["Ranged"],
         "regions": ["Noxus"],
@@ -612,6 +673,7 @@
     {
         "champion_name": "Lux",
         "gender": "F",
+        "id": 62,
         "positions": ["Middle", "Support"],
         "range_type": ["Ranged"],
         "regions": ["Demacia"],
@@ -622,6 +684,7 @@
     {
         "champion_name": "LeBlanc",
         "gender": "F",
+        "id": 63,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Noxus"],
@@ -632,6 +695,7 @@
     {
         "champion_name": "Irelia",
         "gender": "F",
+        "id": 64,
         "positions": ["Top", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -642,6 +706,7 @@
     {
         "champion_name": "Trundle",
         "gender": "M",
+        "id": 65,
         "positions": ["Top", "Jungle"],
         "range_type": ["Melee"],
         "regions": ["Freljord"],
@@ -652,6 +717,7 @@
     {
         "champion_name": "Cassiopeia",
         "gender": "F",
+        "id": 66,
         "positions": ["Middle", "Top"],
         "range_type": ["Ranged"],
         "regions": ["Noxus"],
@@ -662,6 +728,7 @@
     {
         "champion_name": "Caitlyn",
         "gender": "F",
+        "id": 67,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Piltover"],
@@ -672,6 +739,7 @@
     {
         "champion_name": "Renekton",
         "gender": "M",
+        "id": 68,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Shurima"],
@@ -682,6 +750,7 @@
     {
         "champion_name": "Karma",
         "gender": "F",
+        "id": 69,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Ionia"],
@@ -692,6 +761,7 @@
     {
         "champion_name": "Maokai",
         "gender": "M",
+        "id": 70,
         "positions": ["Top", "Support"],
         "range_type": ["Melee"],
         "regions": ["Shadow Isles", "Blessed Isles"],
@@ -702,6 +772,7 @@
     {
         "champion_name": "Jarvan IV",
         "gender": "M",
+        "id": 71,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Demacia"],
@@ -712,6 +783,7 @@
     {
         "champion_name": "Nocturne",
         "gender": "X",
+        "id": 72,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Runeterra"],
@@ -722,6 +794,7 @@
     {
         "champion_name": "Lee Sin",
         "gender": "M",
+        "id": 73,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -732,6 +805,7 @@
     {
         "champion_name": "Brand",
         "gender": "M",
+        "id": 74,
         "positions": ["Support", "Middle"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra"],
@@ -742,6 +816,7 @@
     {
         "champion_name": "Rumble",
         "gender": "M",
+        "id": 75,
         "positions": ["Top", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Bandle City"],
@@ -752,6 +827,7 @@
     {
         "champion_name": "Vayne",
         "gender": "F",
+        "id": 76,
         "positions": ["Top", "Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Demacia"],
@@ -762,6 +838,7 @@
     {
         "champion_name": "Orianna",
         "gender": "F",
+        "id": 77,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Piltover"],
@@ -772,6 +849,7 @@
     {
         "champion_name": "Yorick",
         "gender": "M",
+        "id": 78,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Shadow Isles", "Blessed Isles"],
@@ -782,6 +860,7 @@
     {
         "champion_name": "Leona",
         "gender": "F",
+        "id": 79,
         "positions": ["Support"],
         "range_type": ["Melee"],
         "regions": ["Targon"],
@@ -792,6 +871,7 @@
     {
         "champion_name": "Wukong",
         "gender": "M",
+        "id": 80,
         "positions": ["Top", "Jungle"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -802,6 +882,7 @@
     {
         "champion_name": "Skarner",
         "gender": "M",
+        "id": 81,
         "positions": ["Jungle", "Top"],
         "range_type": ["Melee"],
         "regions": ["Shurima"],
@@ -812,6 +893,7 @@
     {
         "champion_name": "Talon",
         "gender": "M",
+        "id": 82,
         "positions": ["Jungle", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Noxus"],
@@ -822,6 +904,7 @@
     {
         "champion_name": "Riven",
         "gender": "F",
+        "id": 83,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Ionia", "Noxus"],
@@ -832,6 +915,7 @@
     {
         "champion_name": "Xerath",
         "gender": "M",
+        "id": 84,
         "positions": ["Middle", "Support"],
         "range_type": ["Ranged"],
         "regions": ["Shurima"],
@@ -842,6 +926,7 @@
     {
         "champion_name": "Graves",
         "gender": "M",
+        "id": 85,
         "positions": ["Jungle"],
         "range_type": ["Ranged"],
         "regions": ["Bilgewater"],
@@ -852,6 +937,7 @@
     {
         "champion_name": "Shyvana",
         "gender": "F",
+        "id": 86,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Demacia"],
@@ -862,6 +948,7 @@
     {
         "champion_name": "Fizz",
         "gender": "M",
+        "id": 87,
         "positions": ["Middle"],
         "range_type": ["Melee"],
         "regions": ["Bilgewater"],
@@ -872,6 +959,7 @@
     {
         "champion_name": "Volibear",
         "gender": "M",
+        "id": 88,
         "positions": ["Top", "Jungle"],
         "range_type": ["Melee"],
         "regions": ["Freljord"],
@@ -882,6 +970,7 @@
     {
         "champion_name": "Ahri",
         "gender": "F",
+        "id": 89,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Ionia"],
@@ -892,6 +981,7 @@
     {
         "champion_name": "Viktor",
         "gender": "M",
+        "id": 90,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Zaun"],
@@ -902,6 +992,7 @@
     {
         "champion_name": "Sejuani",
         "gender": "F",
+        "id": 91,
         "positions": ["Top", "Jungle"],
         "range_type": ["Melee"],
         "regions": ["Freljord"],
@@ -912,6 +1003,7 @@
     {
         "champion_name": "Ziggs",
         "gender": "M",
+        "id": 92,
         "positions": ["Middle", "Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Zaun", "Piltover"],
@@ -922,6 +1014,7 @@
     {
         "champion_name": "Nautilus",
         "gender": "M",
+        "id": 93,
         "positions": ["Support"],
         "range_type": ["Melee"],
         "regions": ["Bilgewater"],
@@ -932,6 +1025,7 @@
     {
         "champion_name": "Fiora",
         "gender": "F",
+        "id": 94,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Demacia"],
@@ -942,6 +1036,7 @@
     {
         "champion_name": "Lulu",
         "gender": "F",
+        "id": 95,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Bandle City"],
@@ -952,6 +1047,7 @@
     {
         "champion_name": "Hecarim",
         "gender": "M",
+        "id": 96,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Shadow Isles", "Camavor"],
@@ -962,6 +1058,7 @@
     {
         "champion_name": "Varus",
         "gender": "M",
+        "id": 97,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Ionia", "Runeterra", "Shurima"],
@@ -972,6 +1069,7 @@
     {
         "champion_name": "Darius",
         "gender": "M",
+        "id": 98,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Noxus"],
@@ -982,6 +1080,7 @@
     {
         "champion_name": "Draven",
         "gender": "M",
+        "id": 99,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Noxus"],
@@ -992,6 +1091,7 @@
     {
         "champion_name": "Jayce",
         "gender": "M",
+        "id": 100,
         "positions": ["Top"],
         "range_type": ["Melee", "Ranged"],
         "regions": ["Piltover"],
@@ -1002,6 +1102,7 @@
     {
         "champion_name": "Zyra",
         "gender": "F",
+        "id": 101,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Ixtal"],
@@ -1012,6 +1113,7 @@
     {
         "champion_name": "Diana",
         "gender": "F",
+        "id": 102,
         "positions": ["Jungle", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Targon"],
@@ -1022,6 +1124,7 @@
     {
         "champion_name": "Rengar",
         "gender": "M",
+        "id": 103,
         "positions": ["Top", "Jungle"],
         "range_type": ["Melee"],
         "regions": ["Ixtal"],
@@ -1032,6 +1135,7 @@
     {
         "champion_name": "Syndra",
         "gender": "F",
+        "id": 104,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Ionia"],
@@ -1042,6 +1146,7 @@
     {
         "champion_name": "Kha'Zix",
         "gender": "M",
+        "id": 105,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Void"],
@@ -1052,6 +1157,7 @@
     {
         "champion_name": "Elise",
         "gender": "F",
+        "id": 106,
         "positions": ["Jungle"],
         "range_type": ["Melee", "Ranged"],
         "regions": ["Shadow Isles", "Noxus"],
@@ -1062,6 +1168,7 @@
     {
         "champion_name": "Zed",
         "gender": "M",
+        "id": 107,
         "positions": ["Jungle", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -1072,6 +1179,7 @@
     {
         "champion_name": "Nami",
         "gender": "F",
+        "id": 108,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra"],
@@ -1082,6 +1190,7 @@
     {
         "champion_name": "Vi",
         "gender": "F",
+        "id": 109,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Piltover", "Zaun"],
@@ -1092,6 +1201,7 @@
     {
         "champion_name": "Thresh",
         "gender": "M",
+        "id": 110,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Shadow Isles", "Blessed Isles"],
@@ -1102,6 +1212,7 @@
     {
         "champion_name": "Quinn",
         "gender": "F",
+        "id": 111,
         "positions": ["Top"],
         "range_type": ["Ranged"],
         "regions": ["Demacia"],
@@ -1112,6 +1223,7 @@
     {
         "champion_name": "Zac",
         "gender": "M",
+        "id": 112,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Zaun"],
@@ -1122,6 +1234,7 @@
     {
         "champion_name": "Lissandra",
         "gender": "F",
+        "id": 113,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Freljord"],
@@ -1132,6 +1245,7 @@
     {
         "champion_name": "Aatrox",
         "gender": "M",
+        "id": 114,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Runeterra", "Shurima"],
@@ -1142,6 +1256,7 @@
     {
         "champion_name": "Lucian",
         "gender": "M",
+        "id": 115,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Demacia", "Blessed Isles"],
@@ -1152,6 +1267,7 @@
     {
         "champion_name": "Jinx",
         "gender": "F",
+        "id": 116,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Zaun"],
@@ -1162,6 +1278,7 @@
     {
         "champion_name": "Yasuo",
         "gender": "M",
+        "id": 117,
         "positions": ["Middle"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -1172,6 +1289,7 @@
     {
         "champion_name": "Vel'Koz",
         "gender": "M",
+        "id": 118,
         "positions": ["Middle", "Support"],
         "range_type": ["Ranged"],
         "regions": ["Void"],
@@ -1182,6 +1300,7 @@
     {
         "champion_name": "Braum",
         "gender": "M",
+        "id": 119,
         "positions": ["Support"],
         "range_type": ["Melee"],
         "regions": ["Freljord"],
@@ -1192,6 +1311,7 @@
     {
         "champion_name": "Gnar",
         "gender": "M",
+        "id": 120,
         "positions": ["Top"],
         "range_type": ["Melee", "Ranged"],
         "regions": ["Freljord"],
@@ -1202,6 +1322,7 @@
     {
         "champion_name": "Azir",
         "gender": "M",
+        "id": 121,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Shurima"],
@@ -1212,6 +1333,7 @@
     {
         "champion_name": "Kalista",
         "gender": "F",
+        "id": 122,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Shadow Isles", "Camavor"],
@@ -1222,6 +1344,7 @@
     {
         "champion_name": "Rek'Sai",
         "gender": "F",
+        "id": 123,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Void"],
@@ -1232,6 +1355,7 @@
     {
         "champion_name": "Bard",
         "gender": "M",
+        "id": 124,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra"],
@@ -1242,6 +1366,7 @@
     {
         "champion_name": "Ekko",
         "gender": "M",
+        "id": 125,
         "positions": ["Jungle", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Zaun"],
@@ -1252,6 +1377,7 @@
     {
         "champion_name": "Tahm Kench",
         "gender": "M",
+        "id": 126,
         "positions": ["Top", "Support"],
         "range_type": ["Melee"],
         "regions": ["Bilgewater", "Runeterra"],
@@ -1262,6 +1388,7 @@
     {
         "champion_name": "Kindred",
         "gender": "X",
+        "id": 127,
         "positions": ["Jungle"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra"],
@@ -1272,6 +1399,7 @@
     {
         "champion_name": "Illaoi",
         "gender": "F",
+        "id": 128,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Bilgewater"],
@@ -1282,6 +1410,7 @@
     {
         "champion_name": "Jhin",
         "gender": "M",
+        "id": 129,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Ionia"],
@@ -1292,6 +1421,7 @@
     {
         "champion_name": "Aurelion Sol",
         "gender": "M",
+        "id": 130,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Runeterra", "Targon"],
@@ -1302,6 +1432,7 @@
     {
         "champion_name": "Taliyah",
         "gender": "F",
+        "id": 131,
         "positions": ["Jungle", "Middle"],
         "range_type": ["Ranged"],
         "regions": ["Shurima"],
@@ -1312,6 +1443,7 @@
     {
         "champion_name": "Kled",
         "gender": "M",
+        "id": 132,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Noxus"],
@@ -1322,6 +1454,7 @@
     {
         "champion_name": "Ivern",
         "gender": "M",
+        "id": 133,
         "positions": ["Jungle"],
         "range_type": ["Ranged"],
         "regions": ["Ionia", "Freljord"],
@@ -1332,6 +1465,7 @@
     {
         "champion_name": "Camille",
         "gender": "F",
+        "id": 134,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Piltover"],
@@ -1342,6 +1476,7 @@
     {
         "champion_name": "Rakan",
         "gender": "M",
+        "id": 135,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Ionia"],
@@ -1352,6 +1487,7 @@
     {
         "champion_name": "Xayah",
         "gender": "F",
+        "id": 136,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Ionia"],
@@ -1362,6 +1498,7 @@
     {
         "champion_name": "Kayn",
         "gender": "M",
+        "id": 137,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Ionia", "Runeterra", "Rhaast", "Noxus", "Shurima"],
@@ -1372,6 +1509,7 @@
     {
         "champion_name": "Ornn",
         "gender": "M",
+        "id": 138,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Freljord"],
@@ -1382,6 +1520,7 @@
     {
         "champion_name": "Zoe",
         "gender": "F",
+        "id": 139,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Targon"],
@@ -1392,6 +1531,7 @@
     {
         "champion_name": "Kai'Sa",
         "gender": "F",
+        "id": 140,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Void"],
@@ -1402,6 +1542,7 @@
     {
         "champion_name": "Pyke",
         "gender": "M",
+        "id": 141,
         "positions": ["Support"],
         "range_type": ["Melee"],
         "regions": ["Bilgewater"],
@@ -1412,6 +1553,7 @@
     {
         "champion_name": "Neeko",
         "gender": "F",
+        "id": 142,
         "positions": ["Middle", "Support"],
         "range_type": ["Ranged"],
         "regions": ["Ixtal"],
@@ -1422,6 +1564,7 @@
     {
         "champion_name": "Sylas",
         "gender": "M",
+        "id": 143,
         "positions": ["Middle"],
         "range_type": ["Melee"],
         "regions": ["Demacia", "Freljord"],
@@ -1432,6 +1575,7 @@
     {
         "champion_name": "Yuumi",
         "gender": "F",
+        "id": 144,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Bandle City"],
@@ -1442,6 +1586,7 @@
     {
         "champion_name": "Qiyana",
         "gender": "F",
+        "id": 145,
         "positions": ["Jungle", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Ixtal"],
@@ -1452,6 +1597,7 @@
     {
         "champion_name": "Senna",
         "gender": "F",
+        "id": 146,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Blessed Isles"],
@@ -1462,6 +1608,7 @@
     {
         "champion_name": "Aphelios",
         "gender": "M",
+        "id": 147,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Targon"],
@@ -1472,6 +1619,7 @@
     {
         "champion_name": "Sett",
         "gender": "M",
+        "id": 148,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -1482,6 +1630,7 @@
     {
         "champion_name": "Lillia",
         "gender": "F",
+        "id": 149,
         "positions": ["Top", "Jungle"],
         "range_type": ["Ranged"],
         "regions": ["Ionia"],
@@ -1492,6 +1641,7 @@
     {
         "champion_name": "Yone",
         "gender": "M",
+        "id": 150,
         "positions": ["Top", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Ionia"],
@@ -1502,6 +1652,7 @@
     {
         "champion_name": "Samira",
         "gender": "F",
+        "id": 151,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Shurima", "Noxus"],
@@ -1512,6 +1663,7 @@
     {
         "champion_name": "Seraphine",
         "gender": "F",
+        "id": 152,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Piltover", "Zaun"],
@@ -1522,6 +1674,7 @@
     {
         "champion_name": "Rell",
         "gender": "F",
+        "id": 153,
         "positions": ["Support"],
         "range_type": ["Melee"],
         "regions": ["Noxus"],
@@ -1532,6 +1685,7 @@
     {
         "champion_name": "Viego",
         "gender": "M",
+        "id": 154,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Shadow Isles", "Camavor"],
@@ -1542,6 +1696,7 @@
     {
         "champion_name": "Gwen",
         "gender": "F",
+        "id": 155,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Shadow Isles", "Camavor"],
@@ -1552,6 +1707,7 @@
     {
         "champion_name": "Akshan",
         "gender": "M",
+        "id": 156,
         "positions": ["Top", "Middle"],
         "range_type": ["Ranged"],
         "regions": ["Shurima"],
@@ -1562,6 +1718,7 @@
     {
         "champion_name": "Vex",
         "gender": "F",
+        "id": 157,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Shadow Isles", "Bandle City"],
@@ -1572,6 +1729,7 @@
     {
         "champion_name": "Zeri",
         "gender": "F",
+        "id": 158,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Zaun"],
@@ -1582,6 +1740,7 @@
     {
         "champion_name": "Renata Glasc",
         "gender": "F",
+        "id": 159,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Zaun"],
@@ -1592,6 +1751,7 @@
     {
         "champion_name": "Bel'Veth",
         "gender": "F",
+        "id": 160,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Void"],
@@ -1602,6 +1762,7 @@
     {
         "champion_name": "Nilah",
         "gender": "F",
+        "id": 161,
         "positions": ["Bottom"],
         "range_type": ["Melee"],
         "regions": ["Bilgewater"],
@@ -1612,6 +1773,7 @@
     {
         "champion_name": "K'Sante",
         "gender": "M",
+        "id": 162,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Shurima"],
@@ -1622,6 +1784,7 @@
     {
         "champion_name": "Milio",
         "gender": "M",
+        "id": 163,
         "positions": ["Support"],
         "range_type": ["Ranged"],
         "regions": ["Ixtal"],
@@ -1632,6 +1795,7 @@
     {
         "champion_name": "Naafiri",
         "gender": "F",
+        "id": 164,
         "positions": ["Jungle", "Middle"],
         "range_type": ["Melee"],
         "regions": ["Shurima"],
@@ -1642,6 +1806,7 @@
     {
         "champion_name": "Briar",
         "gender": "F",
+        "id": 165,
         "positions": ["Jungle"],
         "range_type": ["Melee"],
         "regions": ["Noxus"],
@@ -1652,6 +1817,7 @@
     {
         "champion_name": "Hwei",
         "gender": "M",
+        "id": 166,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Ionia"],
@@ -1662,6 +1828,7 @@
     {
         "champion_name": "Smolder",
         "gender": "M",
+        "id": 167,
         "positions": ["Bottom"],
         "range_type": ["Ranged"],
         "regions": ["Camavor", "Noxus"],
@@ -1672,6 +1839,7 @@
     {
         "champion_name": "Aurora",
         "gender": "F",
+        "id": 168,
         "positions": ["Middle"],
         "range_type": ["Ranged"],
         "regions": ["Freljord"],
@@ -1682,6 +1850,7 @@
     {
         "champion_name": "Ambessa",
         "gender": "F",
+        "id": 169,
         "positions": ["Top"],
         "range_type": ["Melee"],
         "regions": ["Noxus", "Piltover"],
@@ -1692,6 +1861,7 @@
     {
         "champion_name": "Mel",
         "gender": "F",
+        "id": 170,
         "positions": ["Middle", "Support"],
         "range_type": ["Ranged"],
         "regions": ["Noxus", "Piltover"],
