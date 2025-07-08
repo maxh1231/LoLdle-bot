@@ -1,6 +1,7 @@
 CREATE DATABASE IF NOT EXISTS loldle;
 USE loldle;
-CREATE TABLE IF NOT EXISTS DailyChampion (
+DROP TABLE IF EXISTS DailyChampion;
+CREATE TABLE DailyChampion (
     name VARCHAR(20),
     weight INT
 );

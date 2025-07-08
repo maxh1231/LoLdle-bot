@@ -7,10 +7,12 @@ services:
     env_file:
       - .env
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
+        restart: true
     develop:
       watch:
-        - action: rebuild
+        - action: sync+restart
           path: ./server
           target: /app
           ignore:
@@ -18,7 +20,6 @@ services:
 
   mysql:
     image: mysql:8.4
-    restart: unless-stopped
     container_name: my-mysql
     env_file:
       - .env
@@ -30,6 +31,12 @@ services:
     volumes:
       - db-data:/var/lib/mysql
       - ./server/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./server/db/schema.sql:/schema.sql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_ROOT_PASSWORD}" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   db-data:
