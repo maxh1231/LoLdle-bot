@@ -1,5 +1,6 @@
 import os
 import mysql.connector
+import random
 
 MYSQL_ROOT_PASSWORD = os.environ['MYSQL_ROOT_PASSWORD']
 MYSQL_NAME = os.environ['MYSQL_NAME']
@@ -17,11 +18,16 @@ def main():
     champions = cursor.fetchall()
 
     cursor.execute("SELECT SUM(weight) FROM champions")
-    sum = cursor.fetchall()
+    sum = int(cursor.fetchone()[0])
+    rand = int(random.randrange(sum, (sum + 1)))
 
-    print(sum)
+    pointer = int(0) 
     for row in champions:
-        print(f"id={row[0]}, weight={row[1]}")
+        pointer += row[1]
+        if pointer >= rand:
+            print(f"Total weight: {sum}, random number: {rand}")
+            print(f"pointer {pointer} found: id {row[0]}, weight: {row[1]}")
+            break
 
     cursor.close()
     conn.close()
