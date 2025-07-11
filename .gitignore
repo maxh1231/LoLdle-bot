@@ -3,3 +3,6 @@
 .env.production
 notes.txt
 .DS_Store
+
+cronjob/cronfile
+cronjob/cronjob.log

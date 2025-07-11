@@ -1,5 +1,6 @@
 CREATE DATABASE IF NOT EXISTS loldle;
 USE loldle;
+DROP TABLE IF EXISTS classic_daily;
 DROP TABLE IF EXISTS champions;
 CREATE TABLE champions (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -178,8 +179,7 @@ INSERT INTO champions (riot_id, weight) VALUES
 ('Ambessa', 113),
 ('Mel', 160);
 
-DROP TABLE IF EXISTS daily_champions;
-CREATE TABLE daily_champions (
+CREATE TABLE classic_daily (
     id INT AUTO_INCREMENT PRIMARY KEY,
     champion_id INT NOT NULL,
     selected_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,

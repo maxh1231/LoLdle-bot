@@ -38,5 +38,20 @@ services:
       timeout: 5s
       retries: 5
 
+  cronjob:
+    build: ./cronjob
+    env_file:
+      - .env
+    environment:
+      MYSQL_NAME: ${MYSQL_NAME}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    develop:
+      watch:
+        - action: rebuild
+          path: ./cronjob
+          target: /app
+          ignore:
+            - cronfile
+            - cronjob.log
 volumes:
   db-data:
