@@ -40,6 +40,10 @@ services:
 
   cronjob:
     build: ./cronjob
+    depends_on:
+      mysql:
+        condition: service_healthy
+        restart: true
     env_file:
       - .env
     environment:

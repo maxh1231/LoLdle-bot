@@ -1,11 +1,10 @@
-FROM alpine:3.20
-
-RUN apk add --no-cache bash mysql-client
+FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY select-classic-daily.sh .
+RUN apt-get update && apt-get install -y --no-install-recommends default-mysql-client && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir mysql-connector-python
 
-RUN chmod +x select-classic-daily.sh
+COPY select-classic-daily.py .
 
-ENTRYPOINT ["./select-classic-daily.sh"]
+ENTRYPOINT ["python", "./select-classic-daily.py"]
