@@ -9,11 +9,22 @@ interface ClassicProps {
 const Classic: React.FC<ClassicProps> = ({ solutionId }) => {
     const [attempt, setAttempts] = useState<Champion[] | null>(null);
     const [solution, setSolution] = useState<Champion | undefined>(undefined);
+    const [isWin, setIsWin] = useState<boolean>(false);
     const colHeader = 'flex justify-center items-center w-17 h-18';
 
     useEffect(() => {
         setSolution(championData.find((item) => item.id == solutionId));
     }, [solutionId]);
+
+    if (isWin) {
+        return (
+            <div className='flex flex-col mt-72'>
+                <div className='mx-auto'>
+                    <h1>you won grats</h1>
+                </div>
+            </div>
+        );
+    }
     return (
         <section className='flex flex-col m-auto'>
             <Submit setAttempts={setAttempts} />
@@ -33,6 +44,7 @@ const Classic: React.FC<ClassicProps> = ({ solutionId }) => {
                                 key={i}
                                 attempt={item}
                                 solution={solution}
+                                setIsWin={setIsWin}
                             />
                         ))}
                 </div>

@@ -1,14 +1,28 @@
+import { useEffect } from 'react';
 import { appendComma } from '../helpers/utils';
 import type { Champion } from '../types/champion';
 interface ClassicGuessProps {
     attempt: Champion;
     solution: Champion;
+    setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 // #09C22E - Green
 // #D97E0D - Orange
 // #DA160E - Red
 type GuessColor = '#09C22E' | '#D97E0D' | '#DA160E';
-const ClassicGuess: React.FC<ClassicGuessProps> = ({ attempt, solution }) => {
+const ClassicGuess: React.FC<ClassicGuessProps> = ({
+    attempt,
+    solution,
+    setIsWin,
+}) => {
+    useEffect(() => {
+        console.log(attempt, solution);
+        if (JSON.stringify(attempt) == JSON.stringify(solution)) {
+            console.log(true);
+            setIsWin(true);
+        }
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
     const evalGuessAndApplyColor = (
         championProp: string[],
         comparator: string[]
