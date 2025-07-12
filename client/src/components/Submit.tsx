@@ -20,11 +20,6 @@ const Submit = ({
                     .startsWith(search.toLowerCase());
             }
         });
-        matches.forEach((item) => {
-            if (!item.img) {
-                item.img = buildImgUrl(item.champion_name);
-            }
-        });
         setSearchOptions(matches);
     }, [search]); // eslint-disable-line react-hooks/exhaustive-deps
 

@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { appendComma } from '../helpers/utils';
 import type { Champion } from '../types/champion';
+import arrowup from '../assets/arrowup.svg';
+import arrowdown from '../assets/arrowdown.svg';
 interface ClassicGuessProps {
     attempt: Champion;
     solution: Champion;
@@ -53,35 +55,17 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
                     <p>{year}</p>
                 </div>
             );
-        else if (year < comparator)
-            return (
-                <div
-                    style={{ backgroundColor: '#DA160E' }}
-                    className='flex justify-center items-center w-17 h-18'
-                >
-                    <svg width='' height='' viewBox='0 0 100 100'>
-                        <rect width='100' height='100' fill='#DA160E' />
-                        <polygon
-                            points='50,4 100,50 80,50 80,90 20,90 20,50 0,50'
-                            fill='#1B1F23'
-                        />
-                    </svg>
-                    <p className='absolute text-base/5'>{year}</p>
-                </div>
-            );
         else
             return (
                 <div
                     style={{ backgroundColor: '#DA160E' }}
                     className='flex justify-center items-center w-17 h-18'
                 >
-                    <svg width='100' height='100' viewBox='0 0 100 100'>
-                        <rect width='100' height='100' fill='#DA160E' />
-                        <polygon
-                            points='50,96 100,50 80,50 80,10 20,10 20,50 0,50'
-                            fill='#1B1F23'
-                        />
-                    </svg>
+                    {year < comparator ? (
+                        <img src={arrowup} />
+                    ) : (
+                        <img src={arrowdown} />
+                    )}
                     <p className='absolute text-base/5'>{year}</p>
                 </div>
             );
