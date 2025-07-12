@@ -1,14 +1,16 @@
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
 import { client } from './client.js';
 import { putObject, getObjectMetaData } from './actions.js';
 import { getVersion } from '../riot/getVersion.js';
 import { getSquareImg } from '../riot/getAssets.js';
 import { championNames } from '../constants/championNames.js';
 
-const storeAssets = async () => {
+const storeAssetsInBucket = async () => {
     const version = await getVersion();
     championNames.forEach(async (champion) => {
         try {
-            // TODO: Util function that calls getObjectMetaData and handles returns error
             await client.send(
                 getObjectMetaData({
                     Bucket: 'loldle',
@@ -16,7 +18,7 @@ const storeAssets = async () => {
                 })
             );
         } catch {
-            const img = await getSquareImg(champion.id, version);
+            const img = await getSquareImg(champion.riot_id, version);
             client.send(
                 putObject({
                     Bucket: 'loldle',
@@ -29,4 +31,19 @@ const storeAssets = async () => {
     });
 };
 
-storeAssets();
+const storeAssetsInFs = async () => {
+    const version = await getVersion();
+    const PUBLIC_DIR = path.resolve(
+        dirname(fileURLToPath(import.meta.url)),
+        '../../../client/public/'
+    );
+
+    championNames.forEach(async (champion) => {
+        const img = Buffer.from(await getSquareImg(champion.riot_id, version));
+        const dirName = path.join(PUBLIC_DIR, `${champion.id}.png`);
+        fs.writeFile(dirName, img, () => {
+            console.log(`File written to ${dirName}`);
+        });
+    });
+};
+storeAssetsInFs();
