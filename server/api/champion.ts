@@ -1,6 +1,7 @@
 import { getObject } from '../aws/actions.js';
 import { client } from '../aws/client.js';
 import { FastifyInstance } from 'fastify';
+import { getClassicDailyChampion } from '../db/queries.js';
 
 export const champion = async (server: FastifyInstance) => {
     server.get('/:name', async (request, reply) => {
@@ -26,7 +27,8 @@ export const champion = async (server: FastifyInstance) => {
         }
     });
 
-    server.get('/classic', async (request, reply) => {
-        // return id of daily champion
+    server.get('/classic', async (_, reply) => {
+        const id = await getClassicDailyChampion(server);
+        reply.send({ id: id });
     });
 };
