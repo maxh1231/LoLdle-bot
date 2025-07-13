@@ -1,7 +1,6 @@
 import { useState, useEffect, KeyboardEvent } from 'react';
 import championData from '../assets/championData.json';
 import type { Champion } from '../types/champion';
-import { buildImgUrl } from '../helpers/getChampionUtils';
 
 const Submit = ({
     setAttempts,
@@ -10,10 +9,11 @@ const Submit = ({
 }) => {
     const [search, setSearch] = useState<string | null>(null);
     const [searchOptions, setSearchOptions] = useState<Champion[]>([]);
-    const [champions, setChampions] = useState<Champion[]>(championData);
+    const [selectableChampions, setSelectableChampions] =
+        useState<Champion[]>(championData);
 
     useEffect(() => {
-        const matches = champions.filter((item) => {
+        const matches = selectableChampions.filter((item) => {
             if (search) {
                 return item.champion_name
                     .toLowerCase()
@@ -25,11 +25,13 @@ const Submit = ({
 
     const handleSelection = (selectedChampion: Champion) => {
         setAttempts((prev) =>
-            prev ? [selectedChampion, ...prev] : [selectedChampion]
+            prev ? [...prev, selectedChampion] : [selectedChampion]
         );
         setSearch(null);
         // TODO: Handle this more elegantly if possible, currently O(n), ideally O(1)
-        setChampions(champions.filter((item) => item != selectedChampion));
+        setSelectableChampions(
+            selectableChampions.filter((item) => item != selectedChampion)
+        );
     };
 
     const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {

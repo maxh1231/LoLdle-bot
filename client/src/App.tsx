@@ -25,7 +25,6 @@ function App() {
         })();
     }, []);
 
-    console.log(dailyChampions);
     return (
         <main className='min-h-screen'>
             <Routes>

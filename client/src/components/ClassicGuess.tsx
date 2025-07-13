@@ -7,6 +7,7 @@ interface ClassicGuessProps {
     attempt: Champion;
     solution: Champion;
     setIsWin: React.Dispatch<React.SetStateAction<boolean>>;
+    i: number;
 }
 // #09C22E - Green
 // #D97E0D - Orange
@@ -17,10 +18,10 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
     solution,
     setIsWin,
 }) => {
+    const boxStyles = 'flex flex-col justify-center items-center w-17 h-18';
+
     useEffect(() => {
-        console.log(attempt, solution);
         if (JSON.stringify(attempt) == JSON.stringify(solution)) {
-            console.log(true);
             setIsWin(true);
         }
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -36,21 +37,13 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
         return '#DA160E';
     };
 
-    // TODO:
-    // Can potentially optimize by saving .svg files and importing them.
-    // May be better in a separate component, even though it wouldn't
-    // be used elsewhere.
-    // Currently the SVGs have a red square background. May be better
-    // to omit the red square and instead render the arrow abosolutely
-    // on top of a container with a red background, as the container has
-    // the red background regardless.
     const evalReleaseYear = (year: number) => {
         const comparator = parseInt(solution.release_date.slice(0, 4));
         if (year == comparator)
             return (
                 <div
                     style={{ backgroundColor: '#09C22E' }}
-                    className='flex justify-center items-center w-17 h-18'
+                    className={boxStyles}
                 >
                     <p>{year}</p>
                 </div>
@@ -59,7 +52,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
             return (
                 <div
                     style={{ backgroundColor: '#DA160E' }}
-                    className='flex justify-center items-center w-17 h-18'
+                    className={boxStyles}
                 >
                     {year < comparator ? (
                         <img src={arrowup} />
@@ -72,7 +65,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
     };
 
     return (
-        <>
+        <div className='flex gap-1'>
             <div>
                 <img
                     className='w-17 h-18'
@@ -81,7 +74,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
                 />
             </div>
             <div
-                className='flex justify-center items-center w-17 h-18'
+                className={boxStyles}
                 style={{
                     backgroundColor: evalGuessAndApplyColor(
                         Array.from(attempt.gender),
@@ -92,7 +85,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
                 <p>{attempt.gender == 'X' ? 'Other' : attempt.gender}</p>
             </div>
             <div
-                className='flex flex-col justify-center items-center w-17 h-18'
+                className={boxStyles}
                 style={{
                     backgroundColor: evalGuessAndApplyColor(
                         attempt.positions,
@@ -107,7 +100,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
                 ))}
             </div>
             <div
-                className='flex flex-col justify-center items-center w-17 h-18'
+                className={boxStyles}
                 style={{
                     backgroundColor: evalGuessAndApplyColor(
                         attempt.species,
@@ -122,7 +115,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
                 ))}
             </div>
             <div
-                className='flex justify-center items-center w-17 h-18'
+                className={boxStyles}
                 style={{
                     backgroundColor: evalGuessAndApplyColor(
                         [attempt.resource],
@@ -133,7 +126,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
                 <p>{attempt.resource}</p>
             </div>
             <div
-                className='flex flex-col justify-center items-center w-17 h-18'
+                className={boxStyles}
                 style={{
                     backgroundColor: evalGuessAndApplyColor(
                         attempt.range_type,
@@ -148,7 +141,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
                 ))}
             </div>
             <div
-                className='flex flex-col justify-center items-center w-17 h-18'
+                className={boxStyles}
                 style={{
                     backgroundColor: evalGuessAndApplyColor(
                         attempt.regions,
@@ -163,7 +156,7 @@ const ClassicGuess: React.FC<ClassicGuessProps> = ({
                 ))}
             </div>
             {evalReleaseYear(parseInt(attempt.release_date.slice(0, 4)))}
-        </>
+        </div>
     );
 };
 
