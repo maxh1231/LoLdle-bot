@@ -33,6 +33,6 @@ Checkout Discord's most popular Activity, [ Wordle ](https://discord.com/discove
 
 LoLdle-bot is under heavy development with significant future development opportunities. If you'd like contribute, please review the following documents:
 
-- doc
+- [Client](./client/README.md)
 - [Cronjob](./cronjob/README.md)
 - doc
