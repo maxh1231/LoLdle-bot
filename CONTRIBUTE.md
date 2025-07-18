@@ -11,9 +11,13 @@ Any anticipated change to the codebase ideally will have an associated issue. Br
 
 `<issue number>-<title>`
 
-Example issue: #31 win detection not consistent
+Ex. #31 win detection not consistent:
 
 `31-windetection`
+
+If corresponding issue doesn't exist:
+
+`NA-windetection`
 
 **_Note:_** Ultimately you can't go wrong with branch naming. Contributors are heavily encouraged and their contributions won't be rejected due a branch name.
 
