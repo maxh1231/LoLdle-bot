@@ -29,10 +29,10 @@ Checkout Discord's most popular Activity, [ Wordle ](https://discord.com/discove
     - The webserver and database services have defined `develop.action` set to `sync+restart`. Append `--watch` to `docker compose up` to have respective containers hot reload on code
       changes.
 
-## Development
+## Contribute
 
 LoLdle-bot is under heavy development with significant future development opportunities. If you'd like contribute, please review the following documents:
 
+- [Contribution Guidelines](CONTRIBUTE.md)
 - [Client](./client/README.md)
 - [Cronjob](./cronjob/README.md)
-- doc
