@@ -1,8 +1,9 @@
-import React from 'react';
-import { authStatus, start } from './auth';
+import * as React from 'react';
+import { authStore } from './stores/authStore';
+import { start } from './auth';
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const auth = authStatus();
+    const auth = authStore();
     React.useEffect(() => {
         start().catch((e) => {
             console.error('Auth error', e);

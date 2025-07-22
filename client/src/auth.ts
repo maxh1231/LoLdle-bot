@@ -1,30 +1,17 @@
-import type { CommandResponse, Types } from '@discord/embedded-app-sdk';
+import type { Types } from '@discord/embedded-app-sdk';
 import discordSdk from './discordSdk';
-import { create } from 'zustand';
+import { authStore } from './stores/authStore';
+import type { IGuildsMembersRead } from './types/discord';
 
-type AuthContext = CommandResponse<'authenticate'>;
-
-export const authStatus = create<AuthContext>(() => ({
-    user: undefined as unknown as AuthContext['user'],
-    access_token: '',
-    scopes: [],
-    expires: '',
-    application: {
-        rpc_origins: undefined,
-        id: '',
-        name: '',
-        icon: null,
-        description: '',
-    },
-}));
 export const start = async () => {
-    const { user } = authStatus.getState();
+    const { user } = authStore.getState();
 
     if (user != null) {
         return;
     }
 
     await discordSdk.ready();
+
     const { code } = await discordSdk.commands.authorize({
         client_id: import.meta.env.VITE_DISCORD_CLIENT_ID,
         response_type: 'code',
@@ -69,7 +56,19 @@ export const start = async () => {
         access_token,
     });
 
-    const updateAuth = {
+    const guildMember = await fetch(
+        `https://discord.com/api/users/@me/guilds/${discordSdk.guildId}/member`,
+        {
+            method: 'get',
+            headers: { Authorization: `Bearer ${access_token}` },
+        }
+    )
+        .then((j) => j.json<IGuildsMembersRead>())
+        .catch(() => {
+            return null;
+        });
+
+    const authState = {
         ...authToken,
         user: {
             ...authToken.user,
@@ -77,9 +76,10 @@ export const start = async () => {
                 new URLSearchParams(window.location.search).get('user_id') ??
                 authToken.user.id,
         },
+        guildMember,
     };
 
-    authStatus.setState({
-        ...updateAuth,
+    authStore.setState({
+        ...authState,
     });
 };
