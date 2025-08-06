@@ -18,7 +18,7 @@ export const start = async () => {
         state: '',
         prompt: 'none',
         scope: [
-            'applications.commands',
+            // 'applications.commands',
             // "applications.builds.upload",
             // "applications.builds.read",
             // "applications.store.update",
@@ -30,7 +30,7 @@ export const start = async () => {
             // "gdm.join",
             'guilds',
             // "guilds.join",
-            'guilds.members.read',
+            // 'guilds.members.read',
             // "messages.read",
             // "relationships.read",
             'rpc.activities.write',

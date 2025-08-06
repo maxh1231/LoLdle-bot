@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router';
 import { Landing, Classic } from './pages';
+import { getGuildTextChannels } from './helpers/discord';
+import { authStore } from './stores/authStore';
 
 interface DailyChampion {
     classic: number;
@@ -22,6 +24,11 @@ function App() {
             const response = await fetch(`/api/champion/classic`);
             const data = await response.json();
             setDailyChampions({ classic: data.id });
+
+            const channels = await getGuildTextChannels();
+            console.log(channels);
+
+            console.log(authStore.getState());
         })();
     }, []);
 
