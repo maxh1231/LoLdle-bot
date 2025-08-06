@@ -2,12 +2,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 import fastify from 'fastify';
 import fastifyMysql, { MySQLPool } from '@fastify/mysql';
+
 import { api } from './api/index.js';
 declare module 'fastify' {
     interface FastifyInstance {
         mysql: MySQLPool;
     }
 }
+
 const server = fastify();
 server.register(fastifyMysql, {
     connectionString: `mysql://root:${process.env.MYSQL_ROOT_PASSWORD}@mysql/${process.env.MYSQL_NAME}`,
