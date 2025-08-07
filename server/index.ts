@@ -7,9 +7,6 @@ declare module 'fastify' {
     interface FastifyInstance {
         mysql: MySQLPool;
     }
-    interface FastifyRequest {
-        rawBody?: string;
-    }
 }
 
 const server = fastify();
@@ -17,8 +14,15 @@ server.register(fastifyMysql, {
     connectionString: `mysql://root:${process.env.MYSQL_ROOT_PASSWORD}@mysql/${process.env.MYSQL_NAME}`,
 });
 
+await server.register(import('fastify-raw-body'), {
+    field: 'rawBody',
+    global: false,
+    encoding: 'utf8',
+    runFirst: true,
+    routes: [],
+    jsonContentTypes: ['application/json'],
+});
 server.register(api, { prefix: '/api' });
-
 server.listen({ port: 8080, host: '0.0.0.0' }, (err, address) => {
     if (err) {
         console.error(err);

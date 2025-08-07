@@ -4,29 +4,32 @@ import { discordVerificationHandler } from '../utils/discord.js';
 import { APIBaseInteraction, InteractionType } from 'discord-api-types/v10';
 
 export const interactions = async (server: FastifyInstance) => {
-    const discordVerification = discordVerificationHandler(
+    const discordVerification = await discordVerificationHandler(
         process.env.DISCORD_PUBLIC_KEY!
     );
 
-    server.addContentTypeParser(
-        'application/json',
-        { parseAs: 'string' },
-        (_, body, done) => {
-            try {
-                const rawBody =
-                    typeof body === 'string' ? body : body.toString();
-                done(null, JSON.parse(rawBody));
-            } catch (err: any) {
-                done(err, undefined);
-            }
-        }
-    );
+    // server.addContentTypeParser(
+    //     'application/json',
+    //     { parseAs: 'string' },
+    //     (_, body, done) => {
+    //         try {
+    //             const rawBody =
+    //                 typeof body === 'string' ? body : body.toString();
+    //             done(null, JSON.parse(rawBody));
+    //         } catch (err: any) {
+    //             done(err, undefined);
+    //         }
+    //     }
+    // );
 
     server.post<{
         Body: APIBaseInteraction<InteractionType.Ping, undefined>;
     }>(
         '/',
         {
+            config: {
+                rawBody: true,
+            },
             preHandler: discordVerification,
             schema: {
                 body: {
@@ -44,7 +47,7 @@ export const interactions = async (server: FastifyInstance) => {
         },
         async (request, reply) => {
             const { id, application_id, type } = request.body;
-
+            console.log(request);
             server.log.info('Discord interaction received', {
                 id,
                 type,
@@ -53,9 +56,10 @@ export const interactions = async (server: FastifyInstance) => {
 
             if (type === InteractionType.Ping) {
                 server.log.info('Responding to Discord PING');
-                return reply
-                    .code(200)
-                    .send({ type: InteractionResponseType.PONG });
+                return reply.code(200).send({
+                    type: InteractionResponseType.PONG,
+                    message: 'PONG',
+                });
             }
 
             // APPLICATION_COMMAND
