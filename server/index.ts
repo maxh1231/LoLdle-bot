@@ -8,6 +8,9 @@ declare module 'fastify' {
     interface FastifyInstance {
         mysql: MySQLPool;
     }
+    interface FastifyRequest {
+        rawBody?: string;
+    }
 }
 
 const server = fastify();
