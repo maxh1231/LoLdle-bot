@@ -2,7 +2,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 import fastify from 'fastify';
 import fastifyMysql, { MySQLPool } from '@fastify/mysql';
-
 import { api } from './api/index.js';
 declare module 'fastify' {
     interface FastifyInstance {
@@ -19,6 +18,7 @@ server.register(fastifyMysql, {
 });
 
 server.register(api, { prefix: '/api' });
+
 server.listen({ port: 8080, host: '0.0.0.0' }, (err, address) => {
     if (err) {
         console.error(err);
