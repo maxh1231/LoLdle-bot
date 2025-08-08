@@ -24,7 +24,7 @@ export const discordVerificationHandler = async (publicKey: string) => {
 };
 
 export const sendMessage = async (user: APIUser, channel_id: Snowflake) => {
-    console.log(user.global_name, channel_id);
+    //console.log(user, channel_id);
     try {
         const response = await fetch(
             `https://discord.com/api/v10/channels/${channel_id}/messages`,
@@ -35,7 +35,24 @@ export const sendMessage = async (user: APIUser, channel_id: Snowflake) => {
                     Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
                 },
                 body: JSON.stringify({
-                    content: `${user.global_name} started playing`,
+                    flags: 32768,
+                    components: [
+                        {
+                            type: 10,
+                            content: `${user.global_name} started playing`,
+                        },
+                        {
+                            type: 1,
+                            components: [
+                                {
+                                    type: 2,
+                                    style: 1,
+                                    label: 'Play now!',
+                                    custom_id: 'btn-play-now',
+                                },
+                            ],
+                        },
+                    ],
                 }),
             }
         );
