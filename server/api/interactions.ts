@@ -5,16 +5,26 @@ import {
     APIBaseInteraction,
     InteractionType,
     APIApplicationCommandInteractionData,
-    APIChannel,
+    APIMessageComponentInteractionData,
 } from 'discord-api-types/v10';
 import { sendMessage } from '../utils/discord.js';
-type LoldlePing = APIBaseInteraction<InteractionType.Ping, undefined>;
-type LoldleCommand = APIBaseInteraction<
+type LoldleInteractionPing = APIBaseInteraction<
+    InteractionType.Ping,
+    undefined
+>;
+type LoldleInteractionCommand = APIBaseInteraction<
     InteractionType.ApplicationCommand,
     APIApplicationCommandInteractionData
 >;
+type LoldleInteractionComponent = APIBaseInteraction<
+    InteractionType.MessageComponent,
+    APIMessageComponentInteractionData
+>;
 
-type LoldleInteraction = LoldlePing | LoldleCommand;
+type LoldleInteraction =
+    | LoldleInteractionPing
+    | LoldleInteractionCommand
+    | LoldleInteractionComponent;
 export const interactions = async (server: FastifyInstance) => {
     const discordVerification = await discordVerificationHandler(
         process.env.DISCORD_PUBLIC_KEY!
@@ -64,7 +74,10 @@ export const interactions = async (server: FastifyInstance) => {
 
             // APPLICATION_COMMAND
 
-            if (type === InteractionType.ApplicationCommand) {
+            if (
+                type === InteractionType.ApplicationCommand ||
+                type === InteractionType.MessageComponent
+            ) {
                 await sendMessage(member!.user, channel_id!);
                 return reply.send({
                     type: InteractionResponseType.LAUNCH_ACTIVITY,
