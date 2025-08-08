@@ -1,29 +1,26 @@
 import { FastifyInstance } from 'fastify';
 import { InteractionResponseType } from 'discord-interactions';
 import { discordVerificationHandler } from '../utils/discord.js';
-import { APIBaseInteraction, InteractionType } from 'discord-api-types/v10';
+import {
+    APIBaseInteraction,
+    InteractionType,
+    APIApplicationCommandInteractionData,
+} from 'discord-api-types/v10';
 
+type LoldlePing = APIBaseInteraction<InteractionType.Ping, undefined>;
+type LoldleCommand = APIBaseInteraction<
+    InteractionType.ApplicationCommand,
+    APIApplicationCommandInteractionData
+>;
+
+type LoldleInteraction = LoldlePing | LoldleCommand;
 export const interactions = async (server: FastifyInstance) => {
     const discordVerification = await discordVerificationHandler(
         process.env.DISCORD_PUBLIC_KEY!
     );
 
-    // server.addContentTypeParser(
-    //     'application/json',
-    //     { parseAs: 'string' },
-    //     (_, body, done) => {
-    //         try {
-    //             const rawBody =
-    //                 typeof body === 'string' ? body : body.toString();
-    //             done(null, JSON.parse(rawBody));
-    //         } catch (err: any) {
-    //             done(err, undefined);
-    //         }
-    //     }
-    // );
-
     server.post<{
-        Body: APIBaseInteraction<InteractionType.Ping, undefined>;
+        Body: LoldleInteraction;
     }>(
         '/',
         {
@@ -31,24 +28,24 @@ export const interactions = async (server: FastifyInstance) => {
                 rawBody: true,
             },
             preHandler: discordVerification,
-            schema: {
-                body: {
-                    type: 'object',
-                    properties: {
-                        id: { type: 'string' },
-                        application_id: { type: 'string' },
-                        type: { type: 'number' },
-                        data: { type: 'null' },
-                    },
-                    required: ['id', 'application_id'],
-                    additionalProperties: false,
-                },
-            },
+            // TODO: Implement TypeBox for type -> JSON conversion
+            // schema: {
+            //     body: {
+            //         type: 'object',
+            //         properties: {
+            //             id: { type: 'string' },
+            //             application_id: { type: 'string' },
+            //             type: { type: 'number' },
+            //             data: { type: 'null' },
+            //         },
+            //         required: ['id', 'application_id'],
+            //         additionalProperties: false,
+            //     },
+            // },
         },
         async (request, reply) => {
             const { id, application_id, type } = request.body;
-            console.log(request);
-            server.log.info('Discord interaction received', {
+            console.log('Discord interaction received', {
                 id,
                 type,
                 application_id,
@@ -66,10 +63,7 @@ export const interactions = async (server: FastifyInstance) => {
 
             if (type === InteractionType.ApplicationCommand) {
                 return reply.send({
-                    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                    data: {
-                        content: 'Interaction Response',
-                    },
+                    type: InteractionResponseType.LAUNCH_ACTIVITY,
                 });
             }
         }

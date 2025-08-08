@@ -1,6 +1,5 @@
 import { verifyKey } from 'discord-interactions';
 import { FastifyRequest } from 'fastify';
-import { Buffer } from 'buffer';
 export const discordVerificationHandler = async (publicKey: string) => {
     return async (request: FastifyRequest, reply: any) => {
         const signature = request.headers['x-signature-ed25519'] as string;
@@ -22,4 +21,16 @@ export const discordVerificationHandler = async (publicKey: string) => {
             return reply.code(401).send({ error: 'Invalid signature' });
         }
     };
+};
+
+export const getApplicationCommands = async () => {
+    const response = fetch(
+        `https://discord.com/api/v10/applications/${process.env.VITE_DISCORD_CLIENT_ID}/commands`,
+        {
+            method: 'GET',
+            headers: {
+                Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+            },
+        }
+    );
 };
