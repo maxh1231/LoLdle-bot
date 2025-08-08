@@ -6,7 +6,7 @@ import {
     InteractionType,
     APIApplicationCommandInteractionData,
 } from 'discord-api-types/v10';
-
+import { sendMessage } from '../utils/discord.js';
 type LoldlePing = APIBaseInteraction<InteractionType.Ping, undefined>;
 type LoldleCommand = APIBaseInteraction<
     InteractionType.ApplicationCommand,
@@ -44,11 +44,12 @@ export const interactions = async (server: FastifyInstance) => {
             // },
         },
         async (request, reply) => {
-            const { id, application_id, type } = request.body;
+            const { id, application_id, type, user, channel } = request.body;
             console.log('Discord interaction received', {
                 id,
                 type,
                 application_id,
+                user,
             });
 
             if (type === InteractionType.Ping) {
@@ -62,9 +63,10 @@ export const interactions = async (server: FastifyInstance) => {
             // APPLICATION_COMMAND
 
             if (type === InteractionType.ApplicationCommand) {
-                return reply.send({
+                reply.send({
                     type: InteractionResponseType.LAUNCH_ACTIVITY,
                 });
+                await sendMessage(user, channel);
             }
         }
     );
