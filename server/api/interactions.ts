@@ -55,13 +55,15 @@ export const interactions = async (server: FastifyInstance) => {
             // },
         },
         async (request, reply) => {
-            const { id, application_id, type, member, channel_id } =
+            const { id, type, member, channel_id, token, message } =
                 request.body;
             console.log('Discord interaction received', {
                 id,
                 type,
-                application_id,
                 member,
+                channel_id,
+                token,
+                message,
             });
 
             if (type === InteractionType.Ping) {

@@ -56,7 +56,8 @@ export const sendMessage = async (user: APIUser, channel_id: Snowflake) => {
                 }),
             }
         );
-        console.log(response);
+        const messageData = await response.json();
+        console.log(messageData);
     } catch (err) {
         console.log(err);
     }
