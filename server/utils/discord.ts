@@ -1,6 +1,6 @@
 import { verifyKey } from 'discord-interactions';
 import { FastifyRequest } from 'fastify';
-import { APIUser, APIChannel, Snowflake } from 'discord-api-types/v10';
+import { APIUser, Snowflake, Routes } from 'discord-api-types/v10';
 import { REST } from '@discordjs/rest';
 
 export const rest = new REST({ version: '10' }).setToken(
@@ -28,23 +28,54 @@ export const discordVerificationHandler = async (publicKey: string) => {
     };
 };
 
-export const sendMessage = async (user: APIUser, channel_id: Snowflake) => {
+export const createMessage = async (user: APIUser, channel_id: Snowflake) => {
     //console.log(user, channel_id);
     try {
-        const response = await fetch(
-            `https://discord.com/api/v10/channels/${channel_id}/messages`,
+        const response = await rest.post(Routes.channelMessages(channel_id), {
+            body: {
+                flags: 32768,
+                components: [
+                    {
+                        type: 10,
+                        content: `${user.global_name} started playing`,
+                    },
+                    {
+                        type: 1,
+                        components: [
+                            {
+                                type: 2,
+                                style: 1,
+                                label: 'Play now!',
+                                custom_id: 'btn-play-now',
+                            },
+                        ],
+                    },
+                ],
+            },
+        });
+        console.log(response);
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+// TODO: how to handle modifying existing message data rather than overwriting completely?
+// Must the message be GET requested first? Redis?
+export const editMessage = async (
+    channel_id: Snowflake,
+    message_id: Snowflake,
+    newContent: string
+) => {
+    try {
+        const response = await rest.patch(
+            Routes.channelMessage(channel_id, message_id),
             {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-                },
-                body: JSON.stringify({
+                body: {
                     flags: 32768,
                     components: [
                         {
                             type: 10,
-                            content: `${user.global_name} started playing`,
+                            content: newContent,
                         },
                         {
                             type: 1,
@@ -58,24 +89,11 @@ export const sendMessage = async (user: APIUser, channel_id: Snowflake) => {
                             ],
                         },
                     ],
-                }),
+                },
             }
         );
-        const messageData = await response.json();
-        console.log(messageData);
+        console.log(response);
     } catch (err) {
         console.log(err);
     }
-};
-
-export const getApplicationCommands = async () => {
-    const response = fetch(
-        `https://discord.com/api/v10/applications/${process.env.VITE_DISCORD_CLIENT_ID}/commands`,
-        {
-            method: 'GET',
-            headers: {
-                Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-            },
-        }
-    );
 };

@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-dotenv.config({ path: '../.env' });
+import { rest } from '../utils/discord.js';
+import { Routes, RESTPostOAuth2AccessTokenResult } from 'discord-api-types/v10';
 import { FastifyInstance } from 'fastify';
 
 export const token = async (server: FastifyInstance) => {
@@ -24,6 +25,7 @@ export const token = async (server: FastifyInstance) => {
         async (request, reply) => {
             const { code } = request.body;
             console.log('api received access_code', code);
+
             const response = await fetch(
                 'https://discord.com/api/oauth2/token',
                 {
