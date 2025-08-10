@@ -6,8 +6,9 @@ import championData from '../assets/championData.json';
 
 interface ClassicProps {
     solutionId: number;
+    setNotifyGuild: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const Classic: React.FC<ClassicProps> = ({ solutionId }) => {
+const Classic: React.FC<ClassicProps> = ({ solutionId, setNotifyGuild }) => {
     const [attempt, setAttempts] = useState<Champion[] | null>(null);
     const [solution, setSolution] = useState<Champion | undefined>(undefined);
     const [isWin, setIsWin] = useState<boolean>(false);
@@ -15,7 +16,9 @@ const Classic: React.FC<ClassicProps> = ({ solutionId }) => {
     const colHeader = 'flex justify-center items-center w-17 h-18';
 
     useEffect(() => {
-        setSolution(championData.find((item) => item.id == solutionId));
+        if (!solution)
+            setSolution(championData.find((item) => item.id == solutionId));
+        if (attempt && attempt.length == 1) setNotifyGuild(true);
         if (ref.current === null) return;
         toPng(ref.current, { cacheBust: true })
             .then((data) => {
@@ -24,7 +27,7 @@ const Classic: React.FC<ClassicProps> = ({ solutionId }) => {
             .catch((err) => {
                 console.log(err);
             });
-    }, [solutionId, isWin]);
+    }, [solutionId, isWin, solution, attempt, setNotifyGuild]);
 
     return (
         <section className='flex flex-col m-auto'>

@@ -13,7 +13,7 @@ interface LastMessageRequest {
     newState?: Partial<MessageState>;
 }
 
-interface UserPerformance {
+export interface UserPerformance {
     username: string;
     avatar: string;
     classic: number[][];
@@ -23,7 +23,7 @@ interface UserPerformance {
     splash?: number[];
 }
 
-interface MessageState {
+export interface MessageState {
     message_id: string | null;
     updatedAt: number;
     userPerformance?: UserPerformance[] | null;
@@ -63,7 +63,7 @@ export const setLastMessage = async ({
     now = Date.now(),
     newState,
 }: LastMessageRequest) => {
-    const rkey = keyFor(guild_id, channel_id, BUCKET);
+    const rkey = keyFor(guild_id, channel_id);
     if (!newState) return new Error('newState required');
     newState.updatedAt = now;
     await redis.set(rkey, JSON.stringify(newState), 'PX', WINDOW_MS);

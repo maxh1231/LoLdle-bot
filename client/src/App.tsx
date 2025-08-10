@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router';
 import { Landing, Classic } from './pages';
-import { getGuildTextChannels } from './helpers/discord';
 import { authStore } from './stores/authStore';
+import { sendMessage } from './helpers/discord';
 
 interface DailyChampion {
     classic: number;
+    // mode: number,
+    // mode: number,
+    // mode: number,
+}
+interface UserPerformance {
+    classic: number[][];
     // mode: number,
     // mode: number,
     // mode: number,
@@ -14,6 +20,10 @@ function App() {
     const [dailyChampions, setDailyChampions] = useState<DailyChampion | null>(
         null
     );
+    const [userPerformance, setUserPerformance] = useState<UserPerformance>({
+        classic: [[0, 0, 0, 0, 0, 0, 0]],
+    });
+    const [notifyGuild, setNotifyGuild] = useState<boolean>(false);
 
     // Query local JSON with champion ID and pass Champion to props,
     // or pass champion ID to respective component and each component
@@ -21,16 +31,19 @@ function App() {
     useEffect(() => {
         (async () => {
             // discord sdk may automatically proxy requests to /api
-            const response = await fetch(`/api/champion/classic`);
-            const data = await response.json();
-            setDailyChampions({ classic: data.id });
-
-            const channels = await getGuildTextChannels();
-            console.log(channels);
+            //
+            if (!dailyChampions) {
+                const response = await fetch(`/api/champion/classic`);
+                const data = await response.json();
+                setDailyChampions({ classic: data.id });
+            }
 
             console.log(authStore.getState());
+            if (notifyGuild) {
+                await sendMessage(userPerformance.classic);
+            }
         })();
-    }, []);
+    }, [dailyChampions, notifyGuild]);
 
     return (
         <main className='min-h-screen'>
@@ -41,7 +54,10 @@ function App() {
                     <Route
                         path='/classic'
                         element={
-                            <Classic solutionId={dailyChampions?.classic} />
+                            <Classic
+                                solutionId={dailyChampions?.classic}
+                                setNotifyGuild={setNotifyGuild}
+                            />
                         }
                     />
                 )}
