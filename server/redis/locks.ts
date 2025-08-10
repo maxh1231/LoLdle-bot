@@ -11,7 +11,9 @@ export const withLock = async <T>(
     fn: () => Promise<T>
 ): Promise<T> => {
     const prev = locks.get(key) ?? Promise.resolve();
-    let resolve!: (v: T) => void, reject!: (e: unknown) => void;
+
+    let resolve!: (v: T) => void;
+    let reject!: (e: unknown) => void;
     const run = new Promise<T>((res, rej) => ((resolve = res), (reject = rej)));
 
     const chained = prev
