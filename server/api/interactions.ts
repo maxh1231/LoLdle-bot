@@ -7,7 +7,7 @@ import {
     APIApplicationCommandInteractionData,
     APIMessageComponentInteractionData,
 } from 'discord-api-types/v10';
-import { sendMessage } from '../utils/discord.js';
+import { getLastMessage, setLastMessage } from '../redis/queries.js';
 
 type LoldleInteractionPing = APIBaseInteraction<
     InteractionType.Ping,
@@ -44,13 +44,13 @@ export const interactions = async (server: FastifyInstance) => {
             // schema: {}
         },
         async (request, reply) => {
-            const { id, type, member, channel_id, token, message } =
-                request.body;
+            const { type, guild_id, channel } = request.body;
+            if (!type || !guild_id || !channel)
+                return new Error('Missing required data');
             console.log('Discord interaction received', {
-                id,
                 type,
-                channel_id,
-                token,
+                guild_id,
+                channel,
             });
 
             if (type === InteractionType.Ping) {
@@ -65,9 +65,20 @@ export const interactions = async (server: FastifyInstance) => {
                 type === InteractionType.ApplicationCommand ||
                 type === InteractionType.MessageComponent
             ) {
-                return reply.send({
+                reply.send({
                     type: InteractionResponseType.LAUNCH_ACTIVITY,
                 });
+
+                const res = await getLastMessage({
+                    guild_id: guild_id,
+                    channel_id: channel.id,
+                });
+                if (!res.withinEditWindow)
+                    await setLastMessage({
+                        guild_id: guild_id,
+                        channel_id: channel.id,
+                        newState: { message_id: null, userPerformance: null },
+                    });
             }
         }
     );

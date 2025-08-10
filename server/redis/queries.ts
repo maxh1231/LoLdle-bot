@@ -1,5 +1,5 @@
 import redis from './conn.js';
-const WINDOW_MS = 36000000;
+const WINDOW_MS = 3600000;
 const BUCKET = 'default';
 export type LastMessageResponse =
     | { withinEditWindow: true; state: MessageState }
@@ -9,8 +9,8 @@ interface LastMessageRequest {
     guild_id: string;
     channel_id: string;
     message_id?: string;
-    now: number;
-    newState?: MessageState;
+    now?: number;
+    newState?: Partial<MessageState>;
 }
 
 interface UserPerformance {
@@ -24,30 +24,23 @@ interface UserPerformance {
 }
 
 interface MessageState {
-    message_id: string;
+    message_id: string | null;
     updatedAt: number;
-    version: number;
-    userPerformance: UserPerformance[];
+    userPerformance?: UserPerformance[] | null;
 }
 
-export const keyFor = (
-    guild_id: string,
-    channel_id: string,
-    bucket = 'default'
-) => `lastmsg:${guild_id}:${channel_id}:${bucket}`;
+export const keyFor = (guild_id: string, channel_id: string) =>
+    `lastmsg:${guild_id}:${channel_id}:${BUCKET}`;
 
-export const streamId = (
-    guild_id: string,
-    channel_id: string,
-    bucket = 'default'
-) => `${guild_id}:${channel_id}:${bucket}`;
+export const streamId = (guild_id: string, channel_id: string) =>
+    `${guild_id}:${channel_id}:${BUCKET}`;
 
 export const getLastMessage = async ({
     guild_id,
     channel_id,
     now = Date.now(),
 }: LastMessageRequest): Promise<LastMessageResponse> => {
-    const rkey = keyFor(guild_id, channel_id, BUCKET);
+    const rkey = keyFor(guild_id, channel_id);
     const raw = await redis.get(rkey);
 
     if (!raw) {
@@ -64,7 +57,7 @@ export const getLastMessage = async ({
     return { withinEditWindow: true, state };
 };
 
-export const updateLastMessage = async ({
+export const setLastMessage = async ({
     guild_id,
     channel_id,
     now = Date.now(),

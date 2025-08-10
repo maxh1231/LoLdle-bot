@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-import { rest } from '../utils/discord.js';
-import { Routes, RESTPostOAuth2AccessTokenResult } from 'discord-api-types/v10';
 import { FastifyInstance } from 'fastify';
 
 export const token = async (server: FastifyInstance) => {
